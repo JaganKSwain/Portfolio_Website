@@ -1,12 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import SkillsHexagon from './SkillsHexagon'
-import { skills } from '@/data/skills'
+import JourneyTimeline from './JourneyTimeline'
+import { getJourneyData } from '@/data/journey'
 
-export default function SkillsSection() {
+export default function JourneySection() {
+    const journeyData = getJourneyData()
+
     return (
-        <section id="skills" className="py-20 relative bg-surface/30">
+        <section id="journey" className="py-20 relative">
             <div className="container mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -15,15 +17,14 @@ export default function SkillsSection() {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                        Technical <span className="text-gradient">Skills</span>
+                        My <span className="text-gradient">Journey</span>
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        A comprehensive overview of my technical expertise in software development,
-                        electronics, and data science.
+                        From academic foundations to professional achievements, here's my path in technology.
                     </p>
                 </motion.div>
 
-                <SkillsHexagon skills={skills} />
+                <JourneyTimeline items={journeyData} />
             </div>
         </section>
     )

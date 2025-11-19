@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 10px theme('colors.primary'), 0 0 20px theme('colors.primary');
+  }
+
+  .neon-text {
+    text-shadow: 0 0 5px theme('colors.accent'), 0 0 10px theme('colors.accent');
+  }
+}
+
 :root {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 3, 7, 18;
@@ -12,15 +26,12 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     color: rgb(var(--foreground-rgb));
-    background: linear-gradient(
-        to bottom,
+    background: linear-gradient(to bottom,
         transparent,
-        rgb(var(--background-end-rgb))
-      )
-      rgb(var(--background-start-rgb));
+        rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
     @apply antialiased overflow-x-hidden;
   }
 }
@@ -29,11 +40,11 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
   }
-  
+
   .glass {
     @apply bg-glass-white backdrop-blur-md border border-glass-border;
   }
-  
+
   .glass-card {
     @apply bg-glass-white backdrop-blur-lg border border-glass-border rounded-xl shadow-lg hover:border-primary/30 transition-all duration-300;
   }
