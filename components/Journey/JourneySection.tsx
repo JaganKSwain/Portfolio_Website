@@ -20,7 +20,7 @@ export default function JourneySection() {
                         My <span className="text-gradient">Journey</span>
                     </h2>
                     <p className="text-gray-400 max-w-2xl mx-auto">
-                        From academic foundations to professional achievements, here's my path in technology.
+                        From academic foundations to professional achievements, here&apos;s my path in technology.
                     </p>
                 </motion.div>
 
