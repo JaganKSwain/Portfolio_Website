@@ -1,108 +1,156 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react'
 import Link from 'next/link'
+import { useState, useEffect } from 'react'
 import CircuitBoard from '../Circuit/CircuitBoard'
 
 export default function HeroSection() {
+  const [text, setText] = useState('')
+  const fullText = 'Electronics & Communication Engineer'
+  const [isTyping, setIsTyping] = useState(true)
+
+  useEffect(() => {
+    if (isTyping) {
+      if (text.length < fullText.length) {
+        const timeout = setTimeout(() => {
+          setText(fullText.slice(0, text.length + 1))
+        }, 100)
+        return () => clearTimeout(timeout)
+      } else {
+        setIsTyping(false)
+      }
+    }
+  }, [text, isTyping])
+
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault()
+    const element = document.querySelector(path)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <CircuitBoard />
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      <div className="absolute inset-0 z-0 opacity-20">
+        <CircuitBoard />
+      </div>
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-0" />
+
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center">
+        <div className="text-center max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-6"
+            className="space-y-6"
           >
-            <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-signal-neon via-signal-cyan to-signal-purple bg-clip-text text-transparent"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
+            <motion.div
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/30 text-primary mb-4"
             >
-              Jagan Kumar Swain
-            </motion.h1>
+              <span className="animate-pulse">●</span> Available for Work
+            </motion.div>
+
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+              <span className="text-white">Hi, I&apos;m </span>
+              <span className="text-gradient">Jagan Swain</span>
+            </h1>
+
+            <div className="h-8 md:h-12">
+              <p className="text-xl md:text-3xl text-gray-400 font-mono">
+                {text}
+                <span className="animate-blink">|</span>
+              </p>
+            </div>
+
             <motion.p
-              className="text-xl md:text-2xl text-gray-300 mb-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4 }}
-            >
-              Electronics, VLSI and AI/ML Engineer
-            </motion.p>
-            <motion.p
-              className="text-md md:text-lg text-gray-400 max-w-2xl mx-auto"
+              className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
             >
-              Designing the future of data science and integrated circuits, one transistor at a time
+              I&apos;m an Electronics & Communication Engineering student passionate about
+              <span className="text-secondary"> VLSI</span>, <span className="text-accent"> IoT</span>, and
+              <span className="text-secondary"> Data Science</span>. I build intelligent systems that bridge
+              the gap between hardware and software.
             </motion.p>
-          </motion.div>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-          >
-            <Link href="/projects">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-signal-neon text-circuit-dark font-semibold rounded-lg flex items-center gap-2 hover:shadow-lg hover:shadow-signal-neon/50 transition-shadow"
-              >
-                View Projects
-                <ArrowRight size={20} />
-              </motion.button>
-            </Link>
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border-2 border-signal-neon text-signal-neon font-semibold rounded-lg hover:bg-signal-neon/10 transition-colors"
-              >
-                Get In Touch
-              </motion.button>
-            </Link>
-          </motion.div>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              <Link href="#projects" onClick={(e) => scrollToSection(e, '#projects')}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3 bg-primary text-white font-semibold rounded-full flex items-center gap-2 hover:bg-blue-600 transition-colors shadow-lg shadow-primary/25"
+                >
+                  View Projects
+                  <ArrowRight size={20} />
+                </motion.button>
+              </Link>
+              <Link href="#contact" onClick={(e) => scrollToSection(e, '#contact')}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/10 transition-colors backdrop-blur-sm"
+                >
+                  Contact Me
+                </motion.button>
+              </Link>
+            </motion.div>
 
-          {/* Animated Icons */}
-          <motion.div
-            className="mt-16 flex justify-center gap-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            {['Java', 'Python', 'C', 'VLSI', 'Circuits'].map((skill, i) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2 + i * 0.1 }}
-                whileHover={{ scale: 1.2, y: -5 }}
-                className="px-4 py-2 bg-pcb-green/50 border border-signal-neon/30 rounded-lg text-sm text-signal-neon"
-              >
-                {skill}
-              </motion.div>
-            ))}
+            {/* Social Links */}
+            <motion.div
+              className="flex justify-center gap-6 mt-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              {[
+                { icon: <Github size={24} />, href: "https://github.com/jagankswain" },
+                { icon: <Linkedin size={24} />, href: "https://linkedin.com/in/jagankswain" },
+                { icon: <Mail size={24} />, href: "mailto:swainjagan2005@gmail.com" },
+              ].map((social, i) => (
+                <motion.a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2, color: '#3b82f6' }}
+                  className="text-gray-400 transition-colors"
+                >
+                  {social.icon}
+                </motion.a>
+              ))}
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        onClick={(e: any) => scrollToSection(e, '#about')}
       >
-        <ArrowRight
-          size={24}
-          className="text-signal-neon rotate-90"
-        />
+        <div className="w-6 h-10 border-2 border-gray-500 rounded-full flex justify-center p-1">
+          <motion.div
+            className="w-1 h-2 bg-primary rounded-full"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+        </div>
       </motion.div>
     </section>
   )

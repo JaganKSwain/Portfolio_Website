@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Mail, Linkedin, Github, Loader2 } from 'lucide-react'
+import { Send, Mail, Linkedin, Github, Loader2, MapPin } from 'lucide-react'
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -28,8 +28,6 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       })
 
-      const data = await response.json()
-
       if (response.ok) {
         setSubmitStatus('success')
         setFormData({ name: '', email: '', subject: '', message: '' })
@@ -51,66 +49,64 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       {/* Contact Information */}
       <motion.div
         initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="glass-effect rounded-lg p-8"
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        className="space-y-8"
       >
-        <h2 className="text-3xl font-bold mb-6 text-signal-cyan">Get In Touch</h2>
-        <p className="text-gray-300 mb-8">
-          Feel free to reach out if you&apos;d like to collaborate on a project, discuss 
-          opportunities, or just have a chat about electronics and VLSI design!
-        </p>
+        <div>
+          <h3 className="text-3xl font-bold text-white mb-4">Let&apos;s Connect</h3>
+          <p className="text-gray-400 leading-relaxed">
+            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          </p>
+        </div>
 
         <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-              <Mail className="w-5 h-5 text-signal-neon" />
-              Email Addresses
-            </h3>
-            <div className="space-y-2 ml-7">
-              <a
-                href="mailto:jagan.swain.2024@nist.edu"
-                className="block text-signal-cyan hover:text-signal-neon transition-colors"
-              >
-                jagan.swain.ece.2024@nist.edu
+          <div className="glass p-6 rounded-xl flex items-start gap-4">
+            <div className="p-3 bg-primary/10 rounded-lg text-primary">
+              <Mail size={24} />
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-1">Email Me</h4>
+              <a href="mailto:swainjagan2005@gmail.com" className="text-gray-400 hover:text-primary transition-colors block">
+                swainjagan2005@gmail.com
               </a>
-              <a
-                href="mailto:25f2007282@study.ds.iitm.ac.in"
-                className="block text-signal-cyan hover:text-signal-neon transition-colors"
-              >
-                25f2007282@study.ds.iitm.ac.in
+              <a href="mailto:jagan.swain.2024@nist.edu" className="text-gray-400 hover:text-primary transition-colors block">
+                jagan.swain.ece.2024@nist.edu
               </a>
             </div>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-              <Linkedin className="w-5 h-5 text-signal-neon" />
-              Social Profiles
-            </h3>
-            <div className="space-y-3 ml-7">
-              <a
-                href="https://www.linkedin.com/in/jagan-kumar-swain/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-signal-cyan hover:text-signal-neon transition-colors"
-              >
-                <Linkedin size={20} />
-                <span>LinkedIn Profile</span>
-              </a>
-              <a
-                href="https://github.com/JaganKSwain"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-signal-cyan hover:text-signal-neon transition-colors"
-              >
-                <Github size={20} />
-                <span>GitHub Profile</span>
-              </a>
+          <div className="glass p-6 rounded-xl flex items-start gap-4">
+            <div className="p-3 bg-primary/10 rounded-lg text-primary">
+              <MapPin size={24} />
             </div>
+            <div>
+              <h4 className="text-lg font-semibold text-white mb-1">Location</h4>
+              <p className="text-gray-400">Berhampur, Odisha, India</p>
+            </div>
+          </div>
+
+          <div className="flex gap-4 pt-4">
+            <a
+              href="https://www.linkedin.com/in/jagan-kumar-swain/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 glass rounded-full text-gray-400 hover:text-white hover:bg-primary transition-all duration-300"
+            >
+              <Linkedin size={24} />
+            </a>
+            <a
+              href="https://github.com/JaganKSwain"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 glass rounded-full text-gray-400 hover:text-white hover:bg-primary transition-all duration-300"
+            >
+              <Github size={24} />
+            </a>
           </div>
         </div>
       </motion.div>
@@ -118,17 +114,14 @@ export default function ContactForm() {
       {/* Contact Form */}
       <motion.form
         initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
         onSubmit={handleSubmit}
-        className="glass-effect rounded-lg p-8"
+        className="glass p-8 rounded-2xl space-y-6"
       >
-        <h2 className="text-3xl font-bold mb-6 text-signal-cyan">Send Message</h2>
-
-        <div className="space-y-4">
-          <div>
-            <label htmlFor="name" className="block text-gray-300 mb-2">
-              Name
-            </label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label htmlFor="name" className="text-sm font-medium text-gray-300">Name</label>
             <input
               type="text"
               id="name"
@@ -136,15 +129,12 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-pcb-dark-green border border-signal-neon/30 rounded-lg text-white focus:outline-none focus:border-signal-neon transition-colors"
-              placeholder="Your Name"
+              className="w-full px-4 py-3 bg-surface/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+              placeholder="John Doe"
             />
           </div>
-
-          <div>
-            <label htmlFor="email" className="block text-gray-300 mb-2">
-              Email
-            </label>
+          <div className="space-y-2">
+            <label htmlFor="email" className="text-sm font-medium text-gray-300">Email</label>
             <input
               type="email"
               id="email"
@@ -152,83 +142,79 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-4 py-3 bg-pcb-dark-green border border-signal-neon/30 rounded-lg text-white focus:outline-none focus:border-signal-neon transition-colors"
-              placeholder="your.email@example.com"
+              className="w-full px-4 py-3 bg-surface/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+              placeholder="john@example.com"
             />
           </div>
-
-          <div>
-            <label htmlFor="subject" className="block text-gray-300 mb-2">
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 bg-pcb-dark-green border border-signal-neon/30 rounded-lg text-white focus:outline-none focus:border-signal-neon transition-colors"
-              placeholder="Message Subject"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="message" className="block text-gray-300 mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={6}
-              className="w-full px-4 py-3 bg-pcb-dark-green border border-signal-neon/30 rounded-lg text-white focus:outline-none focus:border-signal-neon transition-colors resize-none"
-              placeholder="Your message here..."
-            />
-          </div>
-
-          {submitStatus === 'success' && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="p-4 bg-signal-neon/20 border border-signal-neon rounded-lg text-signal-neon"
-            >
-              Message sent successfully! I&apos;ll get back to you soon.
-            </motion.div>
-          )}
-
-          {submitStatus === 'error' && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="p-4 bg-red-500/20 border border-red-500 rounded-lg text-red-400"
-            >
-              Failed to send message. Please try again or email me directly.
-            </motion.div>
-          )}
-
-          <motion.button
-            type="submit"
-            disabled={isSubmitting}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full px-6 py-3 bg-signal-neon text-circuit-dark font-semibold rounded-lg flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-signal-neon/50 transition-shadow disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            {isSubmitting ? (
-              <>
-                <Loader2 className="w-5 h-5 animate-spin" />
-                <span>Sending...</span>
-              </>
-            ) : (
-              <>
-                <Send size={20} />
-                <span>Send Message</span>
-              </>
-            )}
-          </motion.button>
         </div>
+
+        <div className="space-y-2">
+          <label htmlFor="subject" className="text-sm font-medium text-gray-300">Subject</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-3 bg-surface/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all"
+            placeholder="Project Collaboration"
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            rows={5}
+            className="w-full px-4 py-3 bg-surface/50 border border-white/10 rounded-lg text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all resize-none"
+            placeholder="Tell me about your project..."
+          />
+        </div>
+
+        {submitStatus === 'success' && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-sm"
+          >
+            Message sent successfully! I&apos;ll get back to you soon.
+          </motion.div>
+        )}
+
+        {submitStatus === 'error' && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-4 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-sm"
+          >
+            Failed to send message. Please try again later.
+          </motion.div>
+        )}
+
+        <motion.button
+          type="submit"
+          disabled={isSubmitting}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="w-full px-6 py-4 bg-primary text-white font-bold rounded-lg flex items-center justify-center gap-2 hover:bg-blue-600 transition-all shadow-lg shadow-primary/25 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {isSubmitting ? (
+            <>
+              <Loader2 className="w-5 h-5 animate-spin" />
+              <span>Sending...</span>
+            </>
+          ) : (
+            <>
+              <Send size={20} />
+              <span>Send Message</span>
+            </>
+          )}
+        </motion.button>
       </motion.form>
     </div>
   )

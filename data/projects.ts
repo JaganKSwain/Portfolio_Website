@@ -4,14 +4,14 @@ export interface Project {
   description: string
   longDescription?: string
   technologies: string[]
-  category:  string
+  category: string
   githubUrl?: string
   liveUrl?: string
   imageUrl?: string
   featured: boolean
 }
 
-export const projectsData: Project[] = [
+export const projects: Project[] = [
   {
     id: '1',
     title: 'IVEAID',
@@ -42,7 +42,7 @@ export const projectsData: Project[] = [
   {
     id: '4',
     title: 'DeepBeat',
-    description:'ECG Arrhythmia Classification using a Hybrid CNN-LSTM',
+    description: 'ECG Arrhythmia Classification using a Hybrid CNN-LSTM',
     technologies: ['Python', 'CNN', 'LSTM'],
     category: 'AI Healthcare',
     featured: true,

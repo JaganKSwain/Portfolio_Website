@@ -1,10 +1,13 @@
 import type { Metadata } from 'next'
+import { Inter, Outfit } from 'next/font/google'
 import './globals.css'
 
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' })
+
 export const metadata: Metadata = {
-  title: 'Jagan Kumar Swain | Electronics, VLSI and AI and NL Portfolio',
-  description: 'Portfolio website showcasing projects, skills, and achievements in Electronics, VLSI IC, AI and Machine Learning and Circuit Design',
-  keywords: ['Electronics', 'VLSI', 'AI and ML', 'Data Analysis','Circuit Design', 'Portfolio', 'Engineering'],
+  title: 'Jagan Swain | Portfolio',
+  description: 'Electronics & Communication Engineer | IoT Developer',
 }
 
 export default function RootLayout({
@@ -13,9 +16,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
-
