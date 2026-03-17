@@ -15,7 +15,7 @@ export const achievementsData: Achievement[] = [
     title: 'Rs.50,000 Defence R&D Grant',
     description: 'Awarded a Defence Research & Development Grant for the project GuardX Sentinel at the International Conference on Air Defence and Security.',
     type: 'Award',
-    date: '2025-12-01',
+    date: '2026-02-13',
     issuer: 'Army AD College & NIST University',
   },
   {
@@ -23,7 +23,7 @@ export const achievementsData: Achievement[] = [
     title: 'Best Innovation Award — Chakravyuh 1.0',
     description: 'Won the Best Innovation Award for GuardX Sentinel, a drone-based human activity detection system for defence surveillance.',
     type: 'Competition',
-    date: '2025-11-15',
+    date: '2026-01-31',
     issuer: 'Chakravyuh 1.0',
   },
   {
@@ -31,7 +31,7 @@ export const achievementsData: Achievement[] = [
     title: 'Grand Finalist — Smart India Hackathon (SIH) 2025',
     description: 'Reached the Grand Finals of SIH 2025 (Hardware Edition) as part of Team CtrlOhm, B.Tech 2nd Year cohort.',
     type: 'Competition',
-    date: '2025-12-15',
+    date: '2025-12-08',
     issuer: 'Smart India Hackathon',
   },
   {
@@ -39,7 +39,7 @@ export const achievementsData: Achievement[] = [
     title: '1st Place — Web Development Competition, Festronix 2K26',
     description: 'Secured first place in the Web Development Competition at Festronix 2K26, demonstrating outstanding technical and development skills.',
     type: 'Competition',
-    date: '2026-01-20',
+    date: '2026-02-27',
     issuer: 'GIFT Autonomous, Bhubaneswar',
   },
   {

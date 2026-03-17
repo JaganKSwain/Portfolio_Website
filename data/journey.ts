@@ -48,11 +48,11 @@ export const getJourneyData = (): JourneyItem[] => {
         imageUrl: item.imageUrl,
     }))
 
-    // Combine and sort by date (descending)
+    // Combine and sort by date (ascending — earliest first)
     const allItems = [...education, ...achievements].sort((a, b) => {
         // Simple string comparison for now as dates are mixed formats
         // For a real timeline, we'd need robust date parsing
-        return b.date.localeCompare(a.date)
+        return a.date.localeCompare(b.date)
     })
 
     return allItems
