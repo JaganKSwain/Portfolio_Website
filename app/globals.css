@@ -2,43 +2,112 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .hexagon {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  }
-
-  .neon-glow {
-    box-shadow: 0 0 10px theme('colors.primary'), 0 0 20px theme('colors.primary');
-  }
-
-  .neon-text {
-    text-shadow: 0 0 5px theme('colors.accent'), 0 0 10px theme('colors.accent');
-  }
-}
-
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 3, 7, 18;
-  --background-end-rgb: 15, 23, 42;
-}
-
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    color: rgb(var(--foreground-rgb));
-    background: linear-gradient(to bottom,
-        transparent,
-        rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    color: #e5e5e5;
+    background: #0a0a0f;
     @apply antialiased overflow-x-hidden;
+  }
+
+  /* Heading font override */
+  h1, h2, h3, h4 {
+    font-family: var(--font-space-grotesk), sans-serif;
+  }
+
+  ::selection {
+    background: rgba(16, 185, 129, 0.25);
+    color: #10b981;
+  }
+}
+
+@layer components {
+  /* Module Card — the core component style */
+  .module-card {
+    @apply relative bg-surface/80 backdrop-blur-sm rounded-lg border border-glass-border;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .module-card::before {
+    content: '';
+    @apply absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-primary/40;
+  }
+  .module-card::after {
+    content: '';
+    @apply absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-primary/40;
+  }
+  .module-card:hover {
+    @apply border-primary/30;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.08), inset 0 1px 0 rgba(16, 185, 129, 0.05);
+  }
+
+  /* Chip Badge */
+  .chip-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-mono font-medium tracking-wider uppercase;
+    @apply bg-surface-light border border-glass-border text-gray-400;
+  }
+
+  /* Copper Badge */
+  .copper-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-mono font-medium tracking-wider uppercase;
+    @apply bg-secondary/10 border border-secondary/30 text-secondary;
+  }
+
+  /* Hexagon (kept for backward compat) */
+  .hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  /* Trace Border — animated gradient border */
+  .trace-border {
+    @apply relative;
+    background: linear-gradient(#12121a, #12121a) padding-box,
+                linear-gradient(135deg, #10b981, #14b8a6, #d97706, #10b981) border-box;
+    border: 1px solid transparent;
+    background-size: 100% 100%, 200% 200%;
+    animation: traceFlow 3s linear infinite;
+  }
+
+  /* Status LED */
+  .status-led {
+    @apply relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono tracking-wider;
+    @apply bg-primary/5 border border-primary/20 text-primary;
+  }
+  .status-led::before {
+    content: '';
+    @apply w-2 h-2 rounded-full bg-primary;
+    box-shadow: 0 0 6px #10b981, 0 0 12px rgba(16, 185, 129, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Via Point */
+  .via-point {
+    @apply w-4 h-4 rounded-full bg-copper border-2 border-primary;
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+  }
+
+  /* Neon glow — updated for emerald */
+  .neon-glow {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3), 0 0 20px rgba(16, 185, 129, 0.15);
   }
 }
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #d97706 100%);
+  }
+
+  .text-gradient-emerald {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #10b981, #14b8a6);
+  }
+
+  .text-gradient-copper {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #d97706, #fbbf24);
   }
 
   .glass {
@@ -46,19 +115,43 @@
   }
 
   .glass-card {
-    @apply bg-glass-white backdrop-blur-lg border border-glass-border rounded-xl shadow-lg hover:border-primary/30 transition-all duration-300;
+    @apply bg-glass-white backdrop-blur-lg border border-glass-border rounded-xl shadow-lg hover:border-primary/20 transition-all duration-300;
+  }
+
+  /* Subtle grid pattern */
+  .grid-pattern {
+    background-image:
+      linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* PCB trace line */
+  .trace-line {
+    background: linear-gradient(180deg, #10b981 0%, #14b8a6 50%, #10b981 100%);
   }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-background;
+  background: #0a0a0f;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-glass-border rounded-full hover:bg-primary/50 transition-colors;
+  background: rgba(16, 185, 129, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.4);
+}
+
+/* Animation keyframe for trace flow (CSS fallback) */
+@keyframes traceFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
 }

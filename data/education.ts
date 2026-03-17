@@ -17,7 +17,7 @@ export const educationData: EducationItem[] = [
     location: 'Berhampur, Odisha, India',
     description: 'Electronics and Communication Engineering Department',
     activities: [
-      'magna cum laude with a CGPA of 9.5',
+      'CGPA: 9.1',
       'Programming and hardware projects',
       'VLSI Design and Circuit Analysis',
       'Cloud and DevOps',
@@ -28,11 +28,11 @@ export const educationData: EducationItem[] = [
     id: '2',
     institution: 'Indian Institute of Technology Madras (IITM)',
     degree: 'Bachelor of Science (B.S): Data Science and Applications',
-    period: '2024 - 2028',
+    period: '2025 - 2028',
     location: 'Chennai, Tamil Nadu, India',
     description: 'Data Science and Applications Department',
     activities: [
-      'Achieved a CGPA of 8.8',
+      'CGPA: 8.1',
       'Data Science and Applications',
       'Data Analysis and Data Visualization',
       'Data Preprocessing and Data Cleaning',

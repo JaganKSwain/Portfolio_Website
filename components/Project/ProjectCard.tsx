@@ -15,42 +15,42 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      whileHover={{ y: -10 }}
-      className="glass-card h-full flex flex-col overflow-hidden group"
+      transition={{ delay: index * 0.08 }}
+      whileHover={{ y: -8 }}
+      className="module-card h-full flex flex-col overflow-hidden group"
     >
       <div className="p-6 flex flex-col h-full">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <div className="p-2 rounded-lg bg-primary/10 text-primary group-hover:text-white group-hover:bg-primary transition-colors">
-              <Cpu size={20} />
+            <div className="p-1.5 rounded-md bg-primary/5 border border-primary/20 text-primary group-hover:bg-primary/10 transition-all">
+              <Cpu size={16} />
             </div>
-            <span className="text-xs font-bold text-primary uppercase tracking-wider">
+            <span className="chip-badge">
               {project.category}
             </span>
           </div>
           {project.featured && (
-            <span className="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-xs font-bold border border-secondary/30">
+            <span className="copper-badge">
               Featured
             </span>
           )}
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+        <h3 className="text-lg font-heading font-bold text-white mb-3 group-hover:text-primary transition-colors">
           {project.title}
         </h3>
 
-        <p className="text-gray-400 mb-6 flex-grow text-sm leading-relaxed">
+        <p className="text-gray-500 mb-6 flex-grow text-sm leading-relaxed">
           {project.description}
         </p>
 
         {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        <div className="flex flex-wrap gap-1.5 mb-6">
           {project.technologies.map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-surface border border-white/5 rounded-full text-xs text-gray-300"
+              className="px-2 py-0.5 bg-surface-light/50 border border-glass-border rounded text-[11px] font-mono text-gray-400"
             >
               {tech}
             </span>
@@ -58,16 +58,16 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         {/* Links */}
-        <div className="flex gap-3 mt-auto pt-4 border-t border-white/5">
+        <div className="flex gap-3 mt-auto pt-4 border-t border-glass-border">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+              className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors"
             >
-              <Github size={16} />
-              <span>Code</span>
+              <Github size={14} />
+              <span className="font-mono text-xs">Code</span>
             </a>
           )}
           {project.liveUrl && (
@@ -75,10 +75,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors ml-auto"
+              className="flex items-center gap-2 text-sm text-secondary hover:text-secondary/80 transition-colors ml-auto"
             >
-              <span>Live Demo</span>
-              <ExternalLink size={16} />
+              <span className="font-mono text-xs">Live</span>
+              <ExternalLink size={14} />
             </a>
           )}
         </div>
@@ -86,4 +86,3 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
     </motion.div>
   )
 }
-

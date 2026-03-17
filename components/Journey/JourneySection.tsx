@@ -8,7 +8,7 @@ export default function JourneySection() {
     const journeyData = getJourneyData()
 
     return (
-        <section id="journey" className="py-20 relative">
+        <section id="journey" className="py-24 relative">
             <div className="container mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -16,12 +16,13 @@ export default function JourneySection() {
                     viewport={{ once: true }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                    <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
                         My <span className="text-gradient">Journey</span>
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
-                        From academic foundations to professional achievements, here&apos;s my path in technology.
+                    <p className="text-gray-500 max-w-2xl mx-auto">
+                        From academic foundations to professional milestones.
                     </p>
+                    <div className="w-16 h-[2px] bg-gradient-to-r from-primary to-secondary mx-auto mt-4" />
                 </motion.div>
 
                 <JourneyTimeline items={journeyData} />
