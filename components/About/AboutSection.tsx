@@ -8,7 +8,7 @@ export default function AboutSection() {
         { year: '2025', title: 'BS in Data Science & Applications', desc: 'IIT Madras' },
         { year: '2024', title: 'B.Tech in ECE', desc: 'NIST University, Berhampur' },
         { year: '2025', title: 'SIH 2025 Grand Finalist', desc: 'Smart India Hackathon (Hardware Edition)' },
-        { year: '2025', title: 'Defence R&D Grant', desc: 'Rs.50,000 for GuardX Sentinel' },
+        { year: '2026', title: 'Defence R&D Grant', desc: 'Rs.50,000 for GuardX Sentinel' },
     ]
 
     const interests = [
