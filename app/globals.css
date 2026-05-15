@@ -8,19 +8,19 @@
   }
 
   body {
-    color: #e5e5e5;
-    background: #0a0a0f;
+    color: #dde4e1;
+    background: #0e1513;
     @apply antialiased overflow-x-hidden;
   }
 
-  /* Heading font override */
+  /* Heading font override — JetBrains Mono */
   h1, h2, h3, h4 {
-    font-family: var(--font-space-grotesk), sans-serif;
+    font-family: var(--font-jetbrains-mono), monospace;
   }
 
   ::selection {
-    background: rgba(16, 185, 129, 0.25);
-    color: #10b981;
+    background: rgba(45, 212, 191, 0.25);
+    color: #57f1db;
   }
 }
 
@@ -40,13 +40,13 @@
   }
   .module-card:hover {
     @apply border-primary/30;
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.08), inset 0 1px 0 rgba(16, 185, 129, 0.05);
+    box-shadow: 0 0 20px rgba(45, 212, 191, 0.08), inset 0 1px 0 rgba(45, 212, 191, 0.05);
   }
 
   /* Chip Badge */
   .chip-badge {
     @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-mono font-medium tracking-wider uppercase;
-    @apply bg-surface-light border border-glass-border text-gray-400;
+    @apply bg-surface-light border border-glass-border text-on-surface-variant;
   }
 
   /* Copper Badge */
@@ -63,8 +63,8 @@
   /* Trace Border — animated gradient border */
   .trace-border {
     @apply relative;
-    background: linear-gradient(#12121a, #12121a) padding-box,
-                linear-gradient(135deg, #10b981, #14b8a6, #d97706, #10b981) border-box;
+    background: linear-gradient(#1a211f, #1a211f) padding-box,
+                linear-gradient(135deg, #2dd4bf, #57f1db, #ffb95f, #2dd4bf) border-box;
     border: 1px solid transparent;
     background-size: 100% 100%, 200% 200%;
     animation: traceFlow 3s linear infinite;
@@ -78,36 +78,59 @@
   .status-led::before {
     content: '';
     @apply w-2 h-2 rounded-full bg-primary;
-    box-shadow: 0 0 6px #10b981, 0 0 12px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 6px #2dd4bf, 0 0 12px rgba(45, 212, 191, 0.4);
     animation: pulse 2s ease-in-out infinite;
   }
 
   /* Via Point */
   .via-point {
     @apply w-4 h-4 rounded-full bg-copper border-2 border-primary;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+    box-shadow: 0 0 8px rgba(45, 212, 191, 0.3);
   }
 
-  /* Neon glow — updated for emerald */
+  /* Neon glow */
   .neon-glow {
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3), 0 0 20px rgba(16, 185, 129, 0.15);
+    box-shadow: 0 0 10px rgba(45, 212, 191, 0.3), 0 0 20px rgba(45, 212, 191, 0.15);
+  }
+
+  /* Terminal Header */
+  .terminal-header {
+    @apply flex items-center gap-2 px-4 py-2.5 bg-surface-lowest rounded-t-lg border-b border-glass-border;
+  }
+  .terminal-dot {
+    @apply w-2.5 h-2.5 rounded-full;
+  }
+
+  /* Ambient glow card */
+  .glow-card {
+    @apply relative bg-surface/60 backdrop-blur-md rounded-lg border border-glass-border;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .glow-card:hover {
+    @apply border-primary/40;
+    box-shadow: 0 0 30px rgba(45, 212, 191, 0.12), 0 0 60px rgba(45, 212, 191, 0.05);
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #d97706 100%);
+    background-image: linear-gradient(135deg, #2dd4bf 0%, #57f1db 50%, #ffb95f 100%);
   }
 
-  .text-gradient-emerald {
+  .text-gradient-teal {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #10b981, #14b8a6);
+    background-image: linear-gradient(135deg, #2dd4bf, #57f1db);
   }
 
   .text-gradient-copper {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #d97706, #fbbf24);
+    background-image: linear-gradient(135deg, #ffb95f, #fbbf24);
+  }
+
+  .text-gradient-matrix {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #66f3b6, #2dd4bf);
   }
 
   .glass {
@@ -118,17 +141,17 @@
     @apply bg-glass-white backdrop-blur-lg border border-glass-border rounded-xl shadow-lg hover:border-primary/20 transition-all duration-300;
   }
 
-  /* Subtle grid pattern */
+  /* Subtle grid pattern — 32px circuit board */
   .grid-pattern {
     background-image:
-      linear-gradient(rgba(16, 185, 129, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(45, 212, 191, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 212, 191, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
   /* PCB trace line */
   .trace-line {
-    background: linear-gradient(180deg, #10b981 0%, #14b8a6 50%, #10b981 100%);
+    background: linear-gradient(180deg, #2dd4bf 0%, #57f1db 50%, #2dd4bf 100%);
   }
 }
 
@@ -138,16 +161,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #0e1513;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(16, 185, 129, 0.2);
+  background: rgba(45, 212, 191, 0.2);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(16, 185, 129, 0.4);
+  background: rgba(45, 212, 191, 0.4);
 }
 
 /* Animation keyframe for trace flow (CSS fallback) */

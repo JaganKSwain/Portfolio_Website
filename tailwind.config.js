@@ -9,36 +9,58 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
-        heading: ['var(--font-space-grotesk)', 'sans-serif'],
+        heading: ['var(--font-jetbrains-mono)', 'monospace'],
         mono: ['var(--font-jetbrains-mono)', 'monospace'],
+        body: ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
-        // Precision Engineering Palette
-        background: '#0a0a0f',
-        surface: '#12121a',
-        'surface-light': '#1a1a25',
+        // Cyber-Circuit Pro Palette
+        background: '#0e1513',
+        surface: '#1a211f',
+        'surface-light': '#242b2a',
+        'surface-bright': '#333b39',
+        'surface-dim': '#0e1513',
+        'surface-lowest': '#09100e',
+        'surface-container': '#1a211f',
+        'surface-container-high': '#242b2a',
+        'surface-container-highest': '#2f3634',
 
-        primary: '#10b981',       // Emerald — PCB traces
-        'primary-dim': '#065f46', // Dimmed emerald
-        secondary: '#d97706',     // Copper/Amber — solder points
-        'secondary-dim': '#92400e',
-        accent: '#14b8a6',        // Teal — signal flow
+        // Primary — Electric Teal
+        primary: '#2dd4bf',
+        'primary-glow': '#57f1db',
+        'primary-dim': '#005047',
+        'on-primary': '#003731',
+
+        // Secondary — Neon Amber
+        secondary: '#ffb95f',
+        'secondary-dim': '#5b3800',
+        'on-secondary': '#472a00',
+
+        // Tertiary — Matrix Green
+        accent: '#66f3b6',
+        'accent-dim': '#005236',
+
+        // Text / On-Surface
+        'on-surface': '#dde4e1',
+        'on-surface-variant': '#bacac5',
+        'outline': '#859490',
+        'outline-variant': '#3c4a46',
 
         // Glassmorphism
-        'glass-white': 'rgba(255, 255, 255, 0.03)',
-        'glass-border': 'rgba(255, 255, 255, 0.06)',
+        'glass-white': 'rgba(255, 255, 255, 0.04)',
+        'glass-border': 'rgba(186, 202, 197, 0.08)',
 
         // Semantic (PCB theme)
-        'trace': '#10b981',
-        'copper': '#d97706',
+        'trace': '#2dd4bf',
+        'copper': '#ffb95f',
         'solder': '#fbbf24',
-        'via': '#14b8a6',
-        'substrate': '#12121a',
+        'via': '#66f3b6',
+        'substrate': '#1a211f',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'radial-gradient(ellipse at center, rgba(16,185,129,0.08) 0%, transparent 70%)',
-        'section-glow': 'radial-gradient(ellipse at top, rgba(16,185,129,0.04) 0%, transparent 50%)',
+        'hero-glow': 'radial-gradient(ellipse at center, rgba(45,212,191,0.10) 0%, transparent 70%)',
+        'section-glow': 'radial-gradient(ellipse at top, rgba(45,212,191,0.05) 0%, transparent 50%)',
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -49,6 +71,7 @@ module.exports = {
         'scan-line': 'scanLine 4s linear infinite',
         'blink': 'blink 1s step-end infinite',
         'copper-pulse': 'copperPulse 2s ease-in-out infinite alternate',
+        'teal-pulse': 'tealPulse 2s ease-in-out infinite alternate',
       },
       keyframes: {
         float: {
@@ -76,15 +99,21 @@ module.exports = {
           '50%': { opacity: '0' },
         },
         copperPulse: {
-          '0%': { boxShadow: '0 0 5px rgba(217,119,6,0.3)' },
-          '100%': { boxShadow: '0 0 20px rgba(217,119,6,0.6)' },
+          '0%': { boxShadow: '0 0 5px rgba(255,185,95,0.3)' },
+          '100%': { boxShadow: '0 0 20px rgba(255,185,95,0.6)' },
+        },
+        tealPulse: {
+          '0%': { boxShadow: '0 0 5px rgba(45,212,191,0.3)' },
+          '100%': { boxShadow: '0 0 20px rgba(45,212,191,0.6)' },
         },
       },
       boxShadow: {
-        'emerald': '0 0 15px rgba(16,185,129,0.15)',
-        'copper': '0 0 15px rgba(217,119,6,0.15)',
-        'emerald-lg': '0 0 30px rgba(16,185,129,0.2)',
-        'copper-lg': '0 0 30px rgba(217,119,6,0.2)',
+        'emerald': '0 0 15px rgba(45,212,191,0.15)',
+        'copper': '0 0 15px rgba(255,185,95,0.15)',
+        'emerald-lg': '0 0 30px rgba(45,212,191,0.2)',
+        'copper-lg': '0 0 30px rgba(255,185,95,0.2)',
+        'teal-glow': '0 0 20px rgba(45,212,191,0.25)',
+        'amber-glow': '0 0 20px rgba(255,185,95,0.25)',
       },
     },
   },

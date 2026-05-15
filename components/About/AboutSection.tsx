@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Code2, Cpu, Zap, Target, Briefcase, Brain } from 'lucide-react'
+import Image from 'next/image'
 
 export default function AboutSection() {
     const timeline = [
@@ -38,7 +39,7 @@ export default function AboutSection() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                    {/* Left Column: Bio & Timeline */}
+                    {/* Left Column: Photo + Bio & Timeline */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -47,17 +48,50 @@ export default function AboutSection() {
                         className="space-y-8"
                     >
                         <div className="module-card p-8">
-                            <p className="text-gray-300 leading-relaxed">
-                                Hello! I&apos;m <span className="text-primary font-semibold">Jagan Kumar Swain</span>,
-                                an Electronics and Communication Engineering undergraduate with a strong focus on
-                                <span className="text-primary"> AI/ML systems</span>, <span className="text-secondary">VLSI fundamentals</span>,
-                                and <span className="text-accent">full-stack development</span>.
-                            </p>
-                            <p className="text-gray-400 leading-relaxed mt-4">
-                                Experienced in building end-to-end solutions spanning embedded hardware, data-driven
-                                machine learning models, and scalable web applications. Adept at translating complex
-                                problem statements into deployable technical systems.
-                            </p>
+                            {/* Photo + Bio Row */}
+                            <div className="flex flex-col sm:flex-row gap-6 items-start">
+                                {/* Profile Photo */}
+                                <motion.div
+                                    initial={{ scale: 0.8, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.3 }}
+                                    className="flex-shrink-0 mx-auto sm:mx-0"
+                                >
+                                    <div className="relative group">
+                                        {/* Glow ring */}
+                                        <div className="absolute -inset-1 rounded-xl bg-gradient-to-br from-primary via-accent to-secondary opacity-30 blur-sm group-hover:opacity-60 transition-opacity duration-500" />
+                                        <div className="relative w-32 h-44 sm:w-36 sm:h-48 rounded-xl overflow-hidden border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-500">
+                                            <Image
+                                                src="/images/Jagan.jpg"
+                                                alt="Jagan Kumar Swain"
+                                                fill
+                                                className="object-cover"
+                                                sizes="(max-width: 640px) 128px, 144px"
+                                                priority
+                                            />
+                                        </div>
+                                        {/* Corner accent dots */}
+                                        <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-primary shadow-emerald" />
+                                        <div className="absolute -top-1 -left-1 w-2 h-2 rounded-full bg-secondary shadow-copper" />
+                                    </div>
+                                </motion.div>
+
+                                {/* Bio text */}
+                                <div>
+                                    <p className="text-on-surface-variant leading-relaxed">
+                                        Hello! I&apos;m <span className="text-primary font-semibold">Jagan Kumar Swain</span>,
+                                        an Electronics and Communication Engineering undergraduate with a strong focus on
+                                        <span className="text-primary"> AI/ML systems</span>, <span className="text-secondary">VLSI fundamentals</span>,
+                                        and <span className="text-accent">full-stack development</span>.
+                                    </p>
+                                    <p className="text-on-surface-variant/70 leading-relaxed mt-4">
+                                        Experienced in building end-to-end solutions spanning embedded hardware, data-driven
+                                        machine learning models, and scalable web applications. Adept at translating complex
+                                        problem statements into deployable technical systems.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
 
                         {/* Timeline */}
@@ -79,7 +113,7 @@ export default function AboutSection() {
                                         <span className="absolute -left-[29px] top-1.5 w-3 h-3 rounded-full bg-background border-2 border-secondary" />
                                         <span className="text-xs text-secondary font-mono">{item.year}</span>
                                         <h4 className="text-sm font-semibold text-white">{item.title}</h4>
-                                        <p className="text-gray-500 text-xs">{item.desc}</p>
+                                        <p className="text-on-surface-variant/50 text-xs">{item.desc}</p>
                                     </motion.div>
                                 ))}
                             </div>
@@ -104,7 +138,7 @@ export default function AboutSection() {
                                     {item.icon}
                                 </div>
                                 <h3 className="text-base font-heading font-bold text-white">{item.title}</h3>
-                                <p className="text-gray-500 text-xs font-mono">{item.desc}</p>
+                                <p className="text-on-surface-variant/50 text-xs font-mono">{item.desc}</p>
                             </motion.div>
                         ))}
                     </motion.div>

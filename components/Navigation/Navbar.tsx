@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Cpu, Code, Zap, Mail, BookOpen, HardDrive } from 'lucide-react'
+import { Menu, X, Cpu, Code, Zap, Mail, BookOpen, HardDrive, GraduationCap } from 'lucide-react'
 
 const navItems = [
   { name: 'Home', path: '/', icon: <Cpu size={16} /> },
   { name: 'About', path: '#about', icon: <Code size={16} /> },
   { name: 'Skills', path: '#skills', icon: <HardDrive size={16} /> },
+  { name: 'Mentor', path: '#mentor', icon: <GraduationCap size={16} /> },
   { name: 'Projects', path: '#projects', icon: <Zap size={16} /> },
   { name: 'Contact', path: '#contact', icon: <Mail size={16} /> },
   { name: 'Cabinet', path: '/cabinet', icon: <BookOpen size={16} /> },

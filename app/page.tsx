@@ -6,17 +6,19 @@ import ProjectsSection from '@/components/Project/ProjectsSection'
 import ContactSection from '@/components/Contact/ContactSection'
 import Footer from '@/components/Footer/Footer'
 import JourneySection from '@/components/Journey/JourneySection'
+import MentorSection from '@/components/Mentor/MentorSection'
 import ParticlesBackground from '@/components/Background/ParticlesBackground'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-white selection:bg-primary/30 selection:text-primary">
+    <main className="min-h-screen bg-background text-on-surface selection:bg-primary/30 selection:text-primary">
       <Navbar />
       <ParticlesBackground />
       <HeroSection />
       <AboutSection />
       <SkillsSection />
       <JourneySection />
+      <MentorSection />
       <ProjectsSection />
       <ContactSection />
       <Footer />
