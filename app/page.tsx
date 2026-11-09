@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navigation/Navbar'
 import HeroSection from '@/components/Hero/HeroSection'
 import AboutSection from '@/components/About/AboutSection'
+import PublicationsSection from '@/components/Publications/PublicationsSection'
 import InteractiveLab from '@/components/InteractiveLab/InteractiveLab'
 import ExperienceSection from '@/components/Experience/ExperienceSection'
 import ProjectsSection from '@/components/Project/ProjectsSection'
@@ -13,9 +14,9 @@ import Footer from '@/components/Footer/Footer'
 import SignalTraceCanvas from '@/components/Circuit/SignalTraceCanvas'
 
 export const metadata = {
-  title: 'Jagan Kumar Swain | Electronics & Communication Engineer • AI/ML & Embedded Systems',
+  title: 'Jagan Kumar Swain | Electronics & Communication Engineer • AI/ML & VLSI Researcher',
   description:
-    'Portfolio of Jagan Kumar Swain — Dual Degree in ECE (NIST University, CGPA 9.1) and Data Science (IIT Madras, CGPA 8.1). Researcher at IISER Berhampur, former Micro Drone Intern at PE Geometry, and ₹50,000 Defence Grant Recipient.',
+    'Portfolio of Jagan Kumar Swain — Dual Degree in ECE (NIST University, CGPA 9.1) and Data Science (IIT Madras, CGPA 8.1). First author on 15-architecture retinal DL benchmark (IISER Berhampur) and 10T SRAM Compute-In-Memory macro in SkyWater 130nm. Recipient of ₹50,000 Defence R&D Grant.',
 }
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <AboutSection />
+      <PublicationsSection />
       <InteractiveLab />
       <ExperienceSection />
       <ProjectsSection />

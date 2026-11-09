@@ -22,14 +22,14 @@ export const experiences: ExperienceItem[] = [
     period: 'Jun 2026 – Present',
     type: 'Research',
     supervisor: 'Dr. Anabik Pal',
-    description: 'Spearheading research on hybrid deep learning models for automated ophthalmic diagnosis from retinal fundus scans.',
+    description: 'First author on systematic benchmarking of 15 deep learning architectures for multi-label retinal disease classification on the RFMiD benchmark.',
     bullets: [
-      'Proposed and secured supervisor approval for the research initiative: "Hybrid Deep Learning Framework for Multi-Retinal Disease Localization, Segmentation and Classification from Fundus Images".',
-      'Architecting an integrated deep learning pipeline executing simultaneous multi-disease detection, localization, lesion segmentation, and diagnostic classification.',
-      'Curated and standardized candidate public fundus image datasets and instituted collaborative GitHub PR workflows with rigorous version control.',
-      'Conducting weekly technical reviews and experimental evaluations to benchmark diagnostic precision against state-of-the-art architectures.'
+      'Benchmarked 15 deep learning architectures (CNN, spatial attention, ViT, Swin, MaxViT, and hybrids) on RFMiD (3,200 fundus images, 45 disease labels) using 5-fold stratified cross-validation under an identical PyTorch/timm training protocol.',
+      'Engineered a 7-architecture, 5-fold probability-averaging ensemble achieving RIADD 0.756, mean AUC 0.933, and mAP 0.543 on the 640-image hold-out (+0.046 RIADD, +0.082 mAP over the top single model MaxViT-Tiny at 0.710).',
+      'Conducted exhaustive ablation studies on 4 loss functions and 3 augmentation policies: domain medical augmentation added 0.02–0.04 RIADD, while ImageNet pretraining elevated ViT-Small RIADD from 0.480 to 0.690 (validated via Wilcoxon signed-rank tests across folds).',
+      'Authored research manuscript in preparation: "Systematic Benchmarking of Deep Learning Architectures for Multi-Label Retinal Disease Classification on the RFMiD Dataset" and instituted collaborative GitHub PR review workflows.'
     ],
-    skills: ['Deep Learning', 'PyTorch', 'Computer Vision', 'Medical Imaging', 'Python', 'Git']
+    skills: ['Deep Learning', 'PyTorch', 'timm', 'Vision Transformers', 'MaxViT', 'Medical Imaging', 'Statistical Significance']
   },
   {
     id: 'pe-geometry',
@@ -48,4 +48,3 @@ export const experiences: ExperienceItem[] = [
     skills: ['Drone Systems', 'Embedded Electronics', 'Hardware Prototyping', 'CAD', 'Sensors']
   }
 ]
-

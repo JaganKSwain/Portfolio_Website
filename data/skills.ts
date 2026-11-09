@@ -17,33 +17,31 @@ export interface Skill {
 
 export const skillGroups: SkillGroup[] = [
   {
-    category: 'Programming Languages',
-    iconName: 'code',
-    description: 'Foundational syntax and system-level languages for algorithms, RTL hardware description, and application logic.',
+    category: 'VLSI & Mixed-Signal Design',
+    iconName: 'microchip',
+    description: 'Custom analog/mixed-signal modeling, SkyWater SKY130 PDK, Compute-In-Memory, and open-source EDA synthesis.',
     skills: [
-      { name: 'Python', highlight: true, context: 'AI/ML, PyTorch, Flask, Data' },
-      { name: 'C', highlight: true, context: 'Embedded Systems, Microcontrollers' },
-      { name: 'Verilog HDL', highlight: true, context: 'Digital Logic, ALU, Vivado' },
-      { name: 'Java', highlight: false, context: 'OOP, DSA' },
-      { name: 'JavaScript / TypeScript', highlight: true, context: 'Full-Stack, Next.js, Node.js' },
-      { name: 'SQL', highlight: false, context: 'Relational Database Queries' },
-      { name: 'HTML5 / CSS3', highlight: false, context: 'Modern Web Interfaces' }
+      { name: 'SkyWater SKY130 PDK', highlight: true, context: '10T SRAM CiM Macro Design' },
+      { name: 'SRAM & Compute-In-Memory (CiM)', highlight: true, context: 'Binary/Ternary NNs, Zero Read-Disturb' },
+      { name: 'SPICE & Monte Carlo Analysis', highlight: true, context: 'Pelgrom Mismatch, SNM Simulation' },
+      { name: 'Yosys Open Synthesis', highlight: true, context: 'sky130_fd_sc_hd, Timing Closure @ 200MHz' },
+      { name: 'Cocotb & Icarus Verilog', highlight: true, context: 'Closed-Loop Mixed-Signal Co-Simulation' },
+      { name: 'Vivado 2025.2 & RTL Synthesis', highlight: true, context: '16-Op ALU Architecture, FPGA' },
+      { name: 'Static Timing Analysis (STA)', highlight: true, context: 'Fmax 648.9 MHz Closure' }
     ]
   },
   {
-    category: 'AI & Machine Learning',
+    category: 'AI & Deep Learning',
     iconName: 'brain',
-    description: 'Theoretical models and practical frameworks spanning deep neural networks, computer vision, and medical imaging.',
+    description: 'Vision Transformers, multi-label clinical diagnostics, quantization-aware training, and model ensembling.',
     skills: [
-      { name: 'PyTorch', highlight: true, context: 'CNN-LSTM, Fundus Segmentation' },
-      { name: 'Deep Learning', highlight: true, context: 'IISER Berhampur Research' },
-      { name: 'Computer Vision', highlight: true, context: 'YOLO, Nicla Vision, OpenCV' },
-      { name: 'Medical Image Analysis', highlight: true, context: 'Retinal Fundus Screening' },
-      { name: 'Convolutional Neural Networks (CNN)', highlight: true, context: 'Feature Extraction' },
-      { name: 'LSTM & Time-Series', highlight: true, context: 'Arrhythmia & F1 Forecasting' },
-      { name: 'Scikit-learn', highlight: false, context: 'Ensemble & Supervised Models' },
-      { name: 'Natural Language Processing (NLP)', highlight: false, context: 'Skill Extraction' },
-      { name: 'AI Agents', highlight: true, context: 'IndiaAI Hackathon (IISc/MeitY)' }
+      { name: 'PyTorch & timm Framework', highlight: true, context: '15-Architecture Retinal Benchmark' },
+      { name: 'Vision Transformers (ViT & Swin)', highlight: true, context: 'ImageNet Pretrained Transfer' },
+      { name: 'MaxViT Hybrid Architectures', highlight: true, context: 'Top Single Model RIADD 0.710' },
+      { name: 'Quantization-Aware Training (QAT)', highlight: true, context: 'LeNet-5 for CiM Macro (97.62%)' },
+      { name: 'Medical Image Analysis (RFMiD)', highlight: true, context: '45-Class Pathological Segmentation' },
+      { name: 'Ensemble Learning & Wilcoxon Tests', highlight: true, context: '7-Model Ensemble (AUC 0.933)' },
+      { name: 'CNN-LSTM Hybrid Networks', highlight: true, context: 'DeepBeat ECG Classification (96%)' }
     ]
   },
   {
@@ -51,26 +49,25 @@ export const skillGroups: SkillGroup[] = [
     iconName: 'cpu',
     description: 'Hardware prototyping, autonomous systems, sensor integration, and real-time edge processing.',
     skills: [
-      { name: 'Micro Drone Systems', highlight: true, context: 'PE Geometry Internship' },
-      { name: 'Arduino Nicla Vision', highlight: true, context: 'GuardX Sentinel Defence System' },
+      { name: 'Micro Drone Systems', highlight: true, context: 'PE Geometry Bengaluru Internship' },
+      { name: 'Arduino Nicla Vision', highlight: true, context: 'GuardX Sentinel Defense System' },
       { name: 'Raspberry Pi', highlight: true, context: 'Edge Compute, Linux SBC' },
-      { name: 'Arduino Microcontrollers', highlight: false, context: 'Sensors, Actuators, I2C/SPI' },
+      { name: 'Embedded C / C++', highlight: true, context: 'Microcontrollers & Avionics Firmware' },
       { name: 'IoT Systems & Cloud Telemetry', highlight: true, context: 'SIH 2025 SegroBin' },
-      { name: 'Edge AI Acceleration', highlight: true, context: 'Low-latency constrained inference' },
       { name: 'Digital Signal Processing (DSP)', highlight: false, context: 'ECG Filtering, Signal Chains' }
     ]
   },
   {
-    category: 'VLSI & Digital Hardware Design',
-    iconName: 'microchip',
-    description: 'RTL architecture, logic synthesis, hardware verification, and FPGA workflows.',
+    category: 'Programming Languages',
+    iconName: 'code',
+    description: 'Foundational syntax and system-level languages for algorithms, RTL hardware description, and application logic.',
     skills: [
-      { name: 'Verilog RTL Design', highlight: true, context: '16-Operation ALU Architecture' },
-      { name: 'Vivado 2025.2', highlight: true, context: 'Synthesis, Implementation, Timing' },
-      { name: 'FPGA Prototyping', highlight: true, context: 'Configurable Logic' },
-      { name: 'Digital Circuit Analysis', highlight: false, context: 'Combinational & Sequential' },
-      { name: 'EDA Tools & EasyEDA', highlight: false, context: 'Schematic Capture & PCB Layout' },
-      { name: 'Waveform Simulation', highlight: true, context: 'Testbench Verification' }
+      { name: 'Python', highlight: true, context: 'PyTorch, Surrogate Models, Data' },
+      { name: 'Verilog HDL', highlight: true, context: '10T CiM Periphery, 16-Op ALU' },
+      { name: 'C / C++', highlight: true, context: 'Embedded Systems, Microcontrollers' },
+      { name: 'Java', highlight: false, context: 'OOP, DSA' },
+      { name: 'JavaScript / TypeScript', highlight: true, context: 'Full-Stack, Next.js, Node.js' },
+      { name: 'SQL', highlight: false, context: 'Relational Database Queries' }
     ]
   },
   {
@@ -96,8 +93,7 @@ export const skillGroups: SkillGroup[] = [
       { name: 'Google Cloud & Vertex AI', highlight: true, context: 'Google Cloud Skill Badge' },
       { name: 'AWS', highlight: false, context: 'Cloud Hosting & S3' },
       { name: 'MATLAB', highlight: false, context: 'Mathematical Modeling' },
-      { name: 'Tableau & Excel', highlight: false, context: 'Deloitte Job Simulation' },
-      { name: 'Google Colab', highlight: false, context: 'GPU Accelerated Training' }
+      { name: 'Tableau & Excel', highlight: false, context: 'Deloitte Job Simulation' }
     ]
   }
 ]

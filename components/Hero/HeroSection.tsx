@@ -12,6 +12,7 @@ import {
   Award,
   GraduationCap,
   Sparkles,
+  BookOpen,
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -62,7 +63,7 @@ export default function HeroSection() {
                 <span className="text-gradient">Jagan Kumar Swain</span>
               </h1>
               <p className="text-lg sm:text-xl font-heading font-medium text-slate-300">
-                Electronics & Communication Engineer • AI/ML & Embedded Systems
+                VLSI/Mixed-Signal &bull; Embedded Systems &bull; Deep Learning Researcher
               </p>
             </div>
 
@@ -79,13 +80,13 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Concise Bio */}
+            {/* Concise Bio highlighting both papers */}
             <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Undergraduate researcher bridging{' '}
-              <strong className="text-slate-200 font-semibold">deep learning algorithms</strong> with{' '}
-              <strong className="text-slate-200 font-semibold">hardware-aware embedded systems</strong>.
-              Researcher at <span className="text-primary">IISER Berhampur</span> (Medical Imaging DL)
-              and former Micro Drone intern at <span className="text-secondary">PE Geometry</span>.
+              Undergraduate engineer & researcher spanning <strong className="text-slate-200">VLSI/mixed-signal design</strong>,{' '}
+              <strong className="text-slate-200">drone systems</strong>, and{' '}
+              <strong className="text-slate-200">deep learning</strong>. First author of two research manuscripts:{' '}
+              <span className="text-primary">15-architecture retinal disease benchmark</span> (IISER Berhampur) and an{' '}
+              <span className="text-secondary">open-source 10T SRAM Compute-In-Memory macro</span> in SkyWater 130nm CMOS.
               Awarded ₹50,000 Defence R&D Grant for GuardX Sentinel.
             </p>
 
@@ -103,18 +104,19 @@ export default function HeroSection() {
               </a>
 
               <button
-                onClick={() => scrollTo('projects')}
+                onClick={() => scrollTo('publications')}
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-heading font-semibold text-sm bg-surface-container hover:bg-surface-light border border-glass-border hover:border-primary/40 text-slate-200 transition-all duration-300"
               >
-                <span>View Projects</span>
-                <ArrowRight size={15} />
+                <BookOpen size={15} className="text-secondary" />
+                <span>Research Manuscripts</span>
               </button>
 
               <button
-                onClick={() => scrollTo('contact')}
+                onClick={() => scrollTo('lab')}
                 className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-heading font-medium text-sm text-slate-400 hover:text-white border border-transparent hover:border-glass-border transition-all duration-300"
               >
-                <span>Get in Touch</span>
+                <span>Interactive Lab</span>
+                <ArrowRight size={14} />
               </button>
             </div>
 
@@ -162,10 +164,8 @@ export default function HeroSection() {
             className="lg:col-span-5 flex justify-center"
           >
             <div className="relative w-full max-w-sm sm:max-w-md">
-              {/* Decorative Glow */}
               <div className="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-primary/30 via-secondary/20 to-accent/20 blur-xl opacity-60 -z-10" />
 
-              {/* Main Profile Showcase Card */}
               <div className="modern-card p-6 sm:p-7 space-y-6">
                 {/* Photo & Quick Meta */}
                 <div className="flex items-center gap-5">
@@ -184,7 +184,7 @@ export default function HeroSection() {
                   <div className="space-y-1.5 min-w-0">
                     <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono bg-primary/10 text-primary border border-primary/20">
                       <Sparkles size={11} />
-                      <span>ECE & DL Researcher</span>
+                      <span>VLSI & DL Researcher</span>
                     </div>
                     <h2 className="text-xl font-heading font-bold text-white truncate">
                       Jagan Swain
@@ -194,7 +194,7 @@ export default function HeroSection() {
                     </p>
                     <div className="pt-1 flex items-center gap-1.5 text-xs text-accent font-mono">
                       <span className="w-2 h-2 rounded-full bg-accent animate-ping" />
-                      <span>Active in Research & Prototyping</span>
+                      <span>2 First-Author Manuscripts</span>
                     </div>
                   </div>
                 </div>
@@ -206,35 +206,35 @@ export default function HeroSection() {
                   </div>
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     <div className="p-2.5 rounded-lg bg-surface-light/60 border border-glass-border">
-                      <span className="text-primary font-mono font-semibold block">
-                        Deep Learning
+                      <span className="text-secondary font-mono font-semibold block">
+                        SkyWater 130nm
                       </span>
                       <span className="text-slate-400 text-[11px]">
-                        PyTorch, Medical CV
+                        10T SRAM CiM Macro
                       </span>
                     </div>
                     <div className="p-2.5 rounded-lg bg-surface-light/60 border border-glass-border">
-                      <span className="text-secondary font-mono font-semibold block">
-                        Drone Systems
+                      <span className="text-primary font-mono font-semibold block">
+                        Retinal DL
                       </span>
                       <span className="text-slate-400 text-[11px]">
-                        Micro Drones & Edge AI
+                        15-Model RFMiD Bench
                       </span>
                     </div>
                     <div className="p-2.5 rounded-lg bg-surface-light/60 border border-glass-border">
                       <span className="text-accent font-mono font-semibold block">
-                        VLSI & Verilog
+                        Micro Drones
                       </span>
                       <span className="text-slate-400 text-[11px]">
-                        Vivado, ALU Design
+                        PE Geometry & Nicla
                       </span>
                     </div>
                     <div className="p-2.5 rounded-lg bg-surface-light/60 border border-glass-border">
                       <span className="text-cyan-400 font-mono font-semibold block">
-                        Full-Stack
+                        Edge Systems
                       </span>
                       <span className="text-slate-400 text-[11px]">
-                        Node.js, Flask, Next.js
+                        ₹50K Defence Grant
                       </span>
                     </div>
                   </div>

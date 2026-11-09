@@ -3,12 +3,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Download, Search, Command } from 'lucide-react'
+import { Menu, X, Download, Search } from 'lucide-react'
 import { personalInfo } from '@/data/personal'
 import CommandPalette from './CommandPalette'
 
 const navLinks = [
   { name: 'About', href: '#about' },
+  { name: 'Research', href: '#publications' },
   { name: 'Lab', href: '#lab' },
   { name: 'Experience', href: '#experience' },
   { name: 'Projects', href: '#projects' },
@@ -104,7 +105,7 @@ export default function Navbar() {
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleSmoothScroll(e, link.href)}
-                    className={`relative px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                    className={`relative px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                       isActive
                         ? 'text-white'
                         : 'text-slate-400 hover:text-slate-200'
@@ -129,14 +130,13 @@ export default function Navbar() {
 
             {/* Right Actions: Command Palette trigger & Resume button */}
             <div className="hidden sm:flex items-center gap-3">
-              {/* Command Palette Trigger */}
               <button
                 onClick={triggerCommandPalette}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-mono bg-surface-container/80 border border-glass-border text-slate-400 hover:text-white hover:border-primary/40 transition-all"
                 title="Open Command Menu (Ctrl+K)"
               >
                 <Search size={13} className="text-primary" />
-                <span className="hidden xl:inline">Search / Jump</span>
+                <span className="hidden xl:inline">Search</span>
                 <kbd className="px-1.5 py-0.5 rounded bg-surface-light border border-glass-border text-[10px] text-slate-400">
                   ⌘K
                 </kbd>

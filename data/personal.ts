@@ -2,10 +2,10 @@ export const personalInfo = {
   name: 'Jagan Kumar Swain',
   shortName: 'Jagan',
   role: 'Electronics & Communication Engineer',
-  secondaryRole: 'AI/ML & Embedded Systems Researcher',
-  tagline: 'Bridging deep learning algorithms with hardware-aware embedded systems.',
+  secondaryRole: 'VLSI/Mixed-Signal & Deep Learning Researcher',
+  tagline: 'Spanning VLSI/mixed-signal design, embedded hardware, drone systems, and deep learning.',
   summary:
-    'Undergraduate researcher and engineer with hands-on experience across embedded hardware, micro drone systems, FPGA/Verilog design, and full-stack development. Award-winning builder with a ₹50,000 Defence R&D Grant and research experience at IISER Berhampur and PE Geometry.',
+    'Undergraduate engineer (CGPA 9.1) spanning VLSI/mixed-signal design, embedded hardware, drone systems, and deep learning. First author of two research manuscripts: a 15-architecture retinal disease classification benchmark (IISER Berhampur) and an open-source 10T SRAM compute-in-memory macro in SkyWater 130nm. Micro Drone intern at PE Geometry. Best Innovation Award (Chakravyuh 1.0) and Rs. 50,000 Defence R&D Grant for GuardX Sentinel.',
   email: 'jagan.swain.ece.2024@nist.edu',
   personalEmail: 'swainjagan2005@gmail.com',
   phone: '+91 7847000609',
@@ -32,12 +32,11 @@ export const personalInfo = {
     },
   },
   keyMetrics: [
+    { label: 'Papers', value: '2', subtext: 'First-Author Manuscripts' },
     { label: 'B.Tech CGPA', value: '9.1', subtext: 'NIST University' },
-    { label: 'IIT Madras CGPA', value: '8.1', subtext: 'BS Data Science' },
-    { label: 'Defence Grant', value: '₹50K', subtext: 'Air Defence & Security' },
-    { label: 'SIH Finalist', value: 'Top 5', subtext: 'Smart India Hackathon' },
-    { label: 'Arrhythmia AI', value: '96%', subtext: 'Clinical Accuracy' },
-    { label: 'Internships', value: '2+', subtext: 'IISER & PE Geometry' },
+    { label: 'IIT Madras', value: '8.1', subtext: 'BS Data Science' },
+    { label: 'Defence Grant', value: '₹50K', subtext: 'Army AD College' },
+    { label: 'CiM Macro', value: '200MHz', subtext: 'SkyWater 130nm CMOS' },
+    { label: 'Ensemble AUC', value: '0.933', subtext: 'RFMiD 45-Class Benchmark' },
   ],
 }
-

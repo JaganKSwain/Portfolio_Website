@@ -16,6 +16,7 @@ import {
   GraduationCap,
   Briefcase,
   Award,
+  BookOpen,
 } from 'lucide-react'
 import { personalInfo } from '@/data/personal'
 
@@ -81,6 +82,13 @@ export default function CommandPalette() {
       action: handleCopyEmail,
     },
     {
+      id: 'nav-publications',
+      title: 'Jump to Research Manuscripts (RFMiD & SkyWater 130nm CiM)',
+      category: 'Navigation',
+      icon: <BookOpen size={16} className="text-secondary" />,
+      action: () => scrollTo('publications'),
+    },
+    {
       id: 'nav-lab',
       title: 'Jump to Interactive Simulation Lab (GuardX & DeepBeat)',
       category: 'Navigation',
@@ -89,7 +97,7 @@ export default function CommandPalette() {
     },
     {
       id: 'nav-exp',
-      title: 'Jump to Research & Industry Experience',
+      title: 'Jump to Research & Industry Experience (IISER & PE Geometry)',
       category: 'Navigation',
       icon: <Briefcase size={16} className="text-cyan-400" />,
       action: () => scrollTo('experience'),
@@ -155,7 +163,6 @@ export default function CommandPalette() {
       <AnimatePresence>
         {isOpen && (
           <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 sm:pt-28 p-4">
-            {/* Backdrop */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -164,7 +171,6 @@ export default function CommandPalette() {
               className="fixed inset-0 bg-background/80 backdrop-blur-md"
             />
 
-            {/* Palette Window */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: -10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -172,7 +178,6 @@ export default function CommandPalette() {
               transition={{ duration: 0.2 }}
               className="relative w-full max-w-xl modern-card bg-surface-container/95 border-primary/30 shadow-2xl overflow-hidden z-10"
             >
-              {/* Input header */}
               <div className="flex items-center gap-3 p-4 border-b border-glass-border">
                 <Search size={18} className="text-primary flex-shrink-0" />
                 <input
@@ -188,7 +193,6 @@ export default function CommandPalette() {
                 </kbd>
               </div>
 
-              {/* Commands list */}
               <div className="max-h-[340px] overflow-y-auto p-2 space-y-1">
                 {filtered.map((cmd) => (
                   <button
@@ -218,7 +222,6 @@ export default function CommandPalette() {
                 )}
               </div>
 
-              {/* Footer */}
               <div className="p-3 border-t border-glass-border flex items-center justify-between text-[11px] font-mono text-slate-500 bg-surface-lowest/50">
                 <span>Navigation & Actions</span>
                 <span className="flex items-center gap-1">
@@ -236,4 +239,3 @@ export default function CommandPalette() {
     </>
   )
 }
-
