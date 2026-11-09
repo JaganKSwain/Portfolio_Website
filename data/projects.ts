@@ -1,122 +1,118 @@
 export interface Project {
   id: string
   title: string
+  subtitle?: string
   description: string
   longDescription?: string
   technologies: string[]
-  category: string
+  category: 'AI & ML' | 'Embedded & Drones' | 'VLSI & Hardware' | 'Full-Stack'
+  metric?: string
+  award?: string
   githubUrl?: string
   liveUrl?: string
-  imageUrl?: string
   featured: boolean
 }
 
 export const projects: Project[] = [
   {
-    id: '1',
+    id: 'guardx-sentinel',
     title: 'GuardX Sentinel',
-    description: 'Drone-based Human Activity Detection System for real-time surveillance. Integrated Raspberry Pi, camera modules, and onboard sensors for efficient edge processing. Awarded Best Innovation Award at Chakravyuh 1.0 and received Rs.50,000 Defence R&D Grant.',
-    technologies: ['Python', 'Computer Vision', 'IoT', 'Raspberry Pi', 'Machine Learning'],
-    category: 'AI & Embedded Systems',
+    subtitle: 'Drone-Based Human Activity & Threat Detection System',
+    description: 'Indigenous drone-integrated surveillance system engineered for real-time human activity detection and threat recognition in defense scenarios. Combines Arduino Nicla Vision, thermal and optical sensors, and low-latency edge AI algorithms.',
+    technologies: ['Arduino Nicla Vision', 'Computer Vision', 'Edge AI', 'IoT', 'Python', 'Embedded Systems'],
+    category: 'Embedded & Drones',
+    metric: '₹50,000 Grant • Best Innovation',
+    award: 'Best Innovation Award (Chakravyuh 1.0) & Rs. 50,000 Defence R&D Grant (Army AD College & NIST)',
+    githubUrl: 'https://github.com/JaganKSwain',
     featured: true,
-    githubUrl: 'https://github.com/JaganKSwain'
   },
   {
-    id: '2',
-    title: 'SegroBin',
-    description: 'Smart Waste Management System designed for SIH 2025 (Government of Odisha problem statement SIH25046). IoT-enabled smart dustbin with companion app for real-time waste tracking and Green Credits incentive mechanism.',
-    technologies: ['IoT', 'Arduino', 'App Development', 'Embedded Systems'],
-    category: 'IoT & Embedded Systems',
-    featured: true,
-    githubUrl: 'https://github.com/JaganKSwain'
-  },
-  {
-    id: '3',
-    title: '16-Operation ALU Design',
-    description: 'Designed and implemented a 16-operation Arithmetic Logic Unit using Verilog HDL. Supports arithmetic (+, -, *, /), logical (AND, OR, XOR), shift operations, and comparison functionalities with Carry and Zero status flags. Verified using Vivado 2025.2.',
-    technologies: ['Verilog HDL', 'Vivado', 'Digital Design', 'VLSI'],
-    category: 'VLSI Design',
-    featured: true,
-    githubUrl: 'https://github.com/JaganKSwain'
-  },
-  {
-    id: '4',
-    title: 'Predicting the Formula 1 Race Winner',
-    description: 'Built predictive models using historical F1 race data. Performed extensive feature engineering capturing driver form, season momentum, circuit affinity, and grid position. Achieved up to 95.6% cross-validated accuracy using Neural Networks with time-aware validation.',
-    technologies: ['Python', 'Scikit-learn', 'Neural Networks', 'Pandas', 'Machine Learning'],
-    category: 'AI & Machine Learning',
-    featured: true,
-    githubUrl: 'https://github.com/JaganKSwain/F1_Winners_Prediction_Model'
-  },
-  {
-    id: '5',
+    id: 'deepbeat',
     title: 'DeepBeat',
-    description: 'ECG Arrhythmia Classification System using a hybrid CNN–LSTM model in PyTorch. Trained on the MIT-BIH Arrhythmia dataset with over 87,000 ECG samples. Achieved 96% overall accuracy with high recall for critical ventricular and supraventricular classes.',
-    technologies: ['Python', 'PyTorch', 'CNN', 'LSTM', 'Deep Learning'],
-    category: 'AI Healthcare',
+    subtitle: 'ECG Arrhythmia Classification with Hybrid CNN-LSTM',
+    description: 'Clinical-grade deep learning screening tool for cardiac arrhythmia detection built with PyTorch. Trained on over 87,000 ECG records from the MIT-BIH Arrhythmia benchmark with high sensitivity on critical ventricular arrhythmias.',
+    technologies: ['PyTorch', 'CNN-LSTM', 'Time-Series', 'Deep Learning', 'Python', 'NumPy'],
+    category: 'AI & ML',
+    metric: '96% Accuracy • 87K+ ECG Records',
+    githubUrl: 'https://github.com/JaganKSwain/DeepBeat',
     featured: true,
-    githubUrl: 'https://github.com/JaganKSwain/DeepBeat'
   },
   {
-    id: '6',
+    id: 'segrobin',
+    title: 'SegroBin',
+    subtitle: 'Smart Waste Management System (SIH 2025 Finalist)',
+    description: 'Engineered for Government of Odisha problem statement SIH25046 at Smart India Hackathon 2025. Built an automated IoT-enabled waste segregation bin with cloud telemetry and a companion mobile app providing Green Credits for recyclers.',
+    technologies: ['IoT', 'Arduino', 'Sensors', 'App Development', 'Cloud Telemetry'],
+    category: 'Embedded & Drones',
+    metric: 'Top 5 Finalist • Govt. of Odisha SIH',
+    award: 'Grand Finalist (Hardware Edition), Smart India Hackathon 2025',
+    githubUrl: 'https://github.com/JaganKSwain',
+    featured: true,
+  },
+  {
+    id: 'f1-predictor',
+    title: 'Formula 1 Race Winner Predictor',
+    subtitle: 'Machine Learning & Time-Series Racing Forecaster',
+    description: 'High-precision predictive pipeline modeling Grand Prix outcomes from historical F1 telemetry. Formulated custom feature representations for driver form, season momentum, circuit affinity, and grid positions with time-aware neural network cross-validation.',
+    technologies: ['Python', 'Scikit-learn', 'Neural Networks', 'Pandas', 'Feature Engineering'],
+    category: 'AI & ML',
+    metric: '95.6% Accuracy • Neural Network',
+    githubUrl: 'https://github.com/JaganKSwain/F1_Winners_Prediction_Model',
+    featured: true,
+  },
+  {
+    id: '16-op-alu',
+    title: '16-Operation ALU Design',
+    subtitle: 'Digital Hardware Architecture in Verilog HDL',
+    description: 'Designed and synthesized a 16-operation Arithmetic Logic Unit executing full 16-bit arithmetic (+, -, *, /), logical (AND, OR, XOR, NOT), shift (LSL, LSR, ASR), and comparison operations with status flags (Carry, Zero, Overflow, Negative). Validated via timing simulation in Vivado 2025.2.',
+    technologies: ['Verilog HDL', 'Vivado 2025.2', 'Digital Logic', 'FPGA', 'RTL Simulation'],
+    category: 'VLSI & Hardware',
+    metric: '16 Operations • Vivado Verified',
+    githubUrl: 'https://github.com/JaganKSwain',
+    featured: true,
+  },
+  {
+    id: 'ai-career-agent',
     title: 'AI Career Agent',
-    description: 'AI-driven career guidance agent built for the IndiaAI Impact GenAI Hackathon (IISC Bengaluru in collaboration with MeitY, Govt. of India). Implements skill extraction, job-role matching, and personalized learning path generation using IBM open-source technologies.',
-    technologies: ['Python', 'Flask', 'AI Agents', 'JavaScript', 'Full-Stack'],
-    category: 'AI & Web Development',
+    subtitle: 'Agentic Career Guidance & Learning Pathway Generator',
+    description: 'Multi-agent decision system engineered for the IndiaAI Impact GenAI Hackathon (IISc Bengaluru & MeitY). Extracts resume competencies, maps candidate capabilities to dynamic industry profiles, and synthesizes step-by-step personalized skill roadmaps.',
+    technologies: ['Python', 'Flask', 'AI Agents', 'IBM Open Source', 'REST APIs', 'JavaScript'],
+    category: 'AI & ML',
+    metric: 'IISc & MeitY Hackathon',
+    githubUrl: 'https://github.com/JaganKSwain/AICA',
     featured: true,
-    githubUrl: 'https://github.com/JaganKSwain/AICA'
   },
   {
-    id: '7',
-    title: 'Full-Stack Authentication System',
-    description: 'Secure authentication system built from scratch with JWT-based authentication, bcrypt password hashing, input validation, and a responsive frontend with real-time form validation and user feedback.',
-    technologies: ['Node.js', 'Express', 'MongoDB', 'JWT', 'JavaScript'],
-    category: 'Web Development',
-    featured: true,
-    githubUrl: 'https://github.com/JaganKSwain'
-  },
-  {
-    id: '8',
-    title: 'IVEAID',
-    description: 'Intelligent Video Examiner and Analyser AI for real-time video analysis and object detection.',
-    technologies: ['Python', 'YOLOv5', 'OpenCV'],
-    category: 'Computer Vision',
-    featured: true,
-    githubUrl: 'https://github.com/JaganKSwain/IVEAID'
-  },
-  {
-    id: '9',
-    title: 'Smart Blind Stick',
-    description: 'Assistive navigation device using ultrasonic sensors and Arduino for obstacle detection. Implements real-time alert mechanisms including buzzer and vibration feedback to enhance user safety.',
-    technologies: ['Arduino', 'Sensors', 'IoT', 'Embedded Systems'],
-    category: 'IoT & Embedded Systems',
+    id: 'fullstack-auth',
+    title: 'Enterprise Authentication System',
+    subtitle: 'Secure Multi-Factor Access & Role-Based Control',
+    description: 'Production-ready authentication and authorization microservice featuring cryptographic bcrypt password hashing, JWT bearer tokens with refresh rotations, request validation schemas, and real-time frontend security guards.',
+    technologies: ['Node.js', 'Express', 'MongoDB', 'JWT', 'Bcrypt', 'TypeScript'],
+    category: 'Full-Stack',
+    metric: 'Production-Ready Security',
+    githubUrl: 'https://github.com/JaganKSwain',
     featured: false,
-    githubUrl: 'https://github.com/JaganKSwain'
   },
   {
-    id: '10',
-    title: 'Arduino-Based 3D Scanner',
-    description: 'Rotating scanning platform using stepper motors and microcontroller control. Coordinates hardware motion with camera-based image acquisition for 3D object reconstruction.',
-    technologies: ['Arduino', 'Stepper Motors', 'Computer Vision', 'Embedded Systems'],
-    category: 'Embedded Systems & CV',
+    id: 'smart-blind-stick',
+    title: 'Smart Assistive Stick & 3D Scanner',
+    subtitle: 'Assistive Ultrasonic Navigation & Hardware 3D Capture',
+    description: 'Two-part embedded robotics project: an ultrasonic obstacle detection cane providing haptic and auditory proximity alerts, paired with an Arduino-driven stepper-motor rotating turntable synchronized with camera acquisition for photogrammetric 3D modeling.',
+    technologies: ['Arduino', 'Ultrasonic Sensors', 'Stepper Motors', 'Computer Vision', 'C++'],
+    category: 'Embedded & Drones',
+    metric: 'Assistive Tech & 3D Reconstruction',
+    githubUrl: 'https://github.com/JaganKSwain',
     featured: false,
-    githubUrl: 'https://github.com/JaganKSwain'
   },
   {
-    id: '11',
-    title: 'Scientific Calculator',
-    description: 'Advanced calculator with scientific functions including trigonometry, logarithms, and more.',
-    technologies: ['JavaScript', 'HTML', 'CSS'],
-    category: 'Web Development',
-    featured: false,
-    githubUrl: 'https://github.com/JaganKSwain/ScientificCalculator'
-  },
-  {
-    id: '12',
-    title: 'Happy Diwali',
-    description: 'Interactive Diwali celebration project with animations and festive visuals.',
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-    category: 'Web Development',
+    id: 'iveaid',
+    title: 'IVEAID – Intelligent Video Examiner',
+    subtitle: 'Real-Time Computer Vision & Surveillance AI',
+    description: 'Intelligent video examination platform utilizing optimized YOLOv5 models for accelerated object detection, tracking, and spatial zone monitoring in high-throughput video streams.',
+    technologies: ['Python', 'YOLOv5', 'OpenCV', 'CUDA', 'TorchVision'],
+    category: 'AI & ML',
+    metric: 'Real-Time Edge Detection',
+    githubUrl: 'https://github.com/JaganKSwain/IVEAID',
     featured: false,
   },
 ]

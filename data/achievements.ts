@@ -2,142 +2,123 @@ export interface Achievement {
   id: string
   title: string
   description: string
-  type: 'Award' | 'Certification' | 'Competition' | 'Publication'
+  type: 'Award' | 'Grant' | 'Competition' | 'Certification'
   date: string
   issuer?: string
+  highlight?: string
   imageUrl?: string
 }
 
 export const achievementsData: Achievement[] = [
-  // === Awards & Competitions ===
+  // === Grants & Major Awards ===
   {
-    id: '1',
-    title: 'Rs.50,000 Defence R&D Grant',
-    description: 'Awarded a Defence Research & Development Grant for the project GuardX Sentinel at the International Conference on Air Defence and Security.',
-    type: 'Award',
-    date: '2026-02-13',
+    id: 'defence-grant',
+    title: '₹50,000 Defence R&D Grant',
+    description: 'Awarded a coveted Defence Research & Development Grant for the GuardX Sentinel drone-integrated threat detection system at the International Conference on Air Defence and Security.',
+    type: 'Grant',
+    date: 'February 2026',
     issuer: 'Army AD College & NIST University',
+    highlight: '₹50,000 Grant'
   },
   {
-    id: '2',
+    id: 'chakravyuh-award',
     title: 'Best Innovation Award — Chakravyuh 1.0',
-    description: 'Won the Best Innovation Award for GuardX Sentinel, a drone-based human activity detection system for defence surveillance.',
-    type: 'Competition',
-    date: '2026-01-31',
-    issuer: 'Chakravyuh 1.0',
+    description: 'Secured the 1st prize Best Innovation Award for GuardX Sentinel, recognized for exceptional hardware-software edge AI implementation under strict latency limits.',
+    type: 'Award',
+    date: 'January 2026',
+    issuer: 'Chakravyuh 1.0 Innovation Challenge',
+    highlight: 'Best Innovation'
   },
   {
-    id: '3',
-    title: 'Grand Finalist — Smart India Hackathon (SIH) 2025',
-    description: 'Reached the Grand Finals of SIH 2025 (Hardware Edition) as part of Team CtrlOhm, B.Tech 2nd Year cohort.',
+    id: 'sih-finalist',
+    title: 'Grand Finalist — Smart India Hackathon (SIH 2025)',
+    description: 'Ranked among the Top 5 Finalists nationwide for Govt. of Odisha problem statement SIH25046 in the Hardware Edition with SegroBin smart waste system as Team CtrlOhm.',
     type: 'Competition',
-    date: '2025-12-08',
-    issuer: 'Smart India Hackathon',
+    date: 'December 2025',
+    issuer: 'Ministry of Education & AICTE, Govt. of India',
+    highlight: 'Top 5 National Finalist'
   },
   {
-    id: '4',
-    title: '1st Place — Web Development Competition, Festronix 2K26',
-    description: 'Secured first place in the Web Development Competition at Festronix 2K26, demonstrating outstanding technical and development skills.',
+    id: 'festronix-first',
+    title: '1st Place — Web Development Competition',
+    description: 'Clinched 1st place at Festronix 2K26 web engineering competition, building a responsive, high-performance web architecture under timed evaluation.',
     type: 'Competition',
-    date: '2026-02-27',
+    date: 'February 2026',
     issuer: 'GIFT Autonomous, Bhubaneswar',
+    highlight: '1st Prize Winner'
   },
   {
-    id: '5',
+    id: 'code-crusade',
     title: 'Winner — Code Crusade 4.0',
-    description: 'Won Code Crusade 4.0 (Group 2: 1st & 2nd Years), a competitive coding contest conducted on HackerRank.',
+    description: 'Won 1st place in Code Crusade 4.0 algorithmic coding competition (1st & 2nd Year category) organized on HackerRank.',
     type: 'Competition',
-    date: '2025-10-15',
+    date: 'October 2025',
     issuer: 'Club Excel, NIST University',
+    highlight: '1st Place Algorithm Contest'
   },
 
   // === Certifications & Training ===
   {
-    id: '6',
-    title: 'OOSC 3.0 — Open-Source Software Conference',
-    description: 'Attended the Open-Source Software Conference at IIT Kanpur conducted by Canonical and Ubuntu. Gained exposure to Linux, open-source ecosystems, and collaborative development practices.',
+    id: 'vertex-ai-badge',
+    title: 'Build & Deploy ML Solutions on Vertex AI',
+    description: 'Earned official Google Cloud Skill Badge for machine learning workflow design, pipeline orchestration, model tuning, and cloud deployment on Google Cloud Platform.',
     type: 'Certification',
-    date: '2025-09-07',
-    issuer: 'Canonical and Ubuntu, IIT Kanpur',
-    imageUrl: '/images/oscc3.0.png',
+    date: 'October 2025',
+    issuer: 'Google Cloud Platform',
+    highlight: 'Google Cloud Skill Badge'
   },
   {
-    id: '7',
-    title: 'DevOps Webinar',
-    description: 'Participated in the DevOps Webinar conducted by GDG on Campus Malla Reddy Engineering College. Learned DevOps principles, CI/CD pipelines, and modern development workflows bridging development and operations.',
-    type: 'Certification',
-    date: '2025-09-30',
-    issuer: 'GDG on Campus: Malla Reddy Engineering College',
-    imageUrl: '/images/devops.png',
-  },
-  {
-    id: '8',
-    title: 'IoT and Mechatronics Internship',
-    description: 'Hands-on experience with Arduino-based embedded systems, sensors, automation, and cloud-integrated IoT solutions.',
-    type: 'Certification',
-    date: '2025-07-31',
-    issuer: 'NIST University',
-    imageUrl: '/images/iot.png',
-  },
-  {
-    id: '9',
-    title: 'Build and Deploy ML Solutions on Vertex AI',
-    description: 'Practical experience in building, training, and deploying ML models using Google Vertex AI. Earned Google Cloud Skill Badge.',
-    type: 'Certification',
-    date: '2025-10-01',
-    issuer: 'Google Cloud',
-  },
-  {
-    id: '10',
+    id: 'deloitte-analytics',
     title: 'Data Analytics Job Simulation',
-    description: 'Completed a professional simulation involving data analysis and forensic technology. Built dashboards using Tableau and derived business insights using Excel.',
+    description: 'Completed enterprise simulation by Deloitte Australia via Forage. Developed interactive Tableau visual dashboards and quantitative analysis spreadsheets.',
     type: 'Certification',
-    date: '2025-09-07',
+    date: 'September 2025',
     issuer: 'Deloitte Australia (Forage)',
-    imageUrl: '/images/data.png',
+    highlight: 'Tableau & Forensic Analytics'
   },
   {
-    id: '11',
-    title: 'Blender and AR Workshop',
-    description: 'Hands-on experience with Blender fundamentals, Unity, and AR application development. Built an AR application that projects 3D models on surfaces virtually.',
+    id: 'oosc-iitk',
+    title: 'OOSC 3.0 Open-Source Conference',
+    description: 'Participated in the Open-Source Software Conference hosted at IIT Kanpur by Canonical and Ubuntu, mastering Linux system internals and upstream open-source workflows.',
     type: 'Certification',
-    date: '2025-04-30',
-    issuer: 'Club Multimedia, NIST University',
-    imageUrl: '/images/blender.png',
+    date: 'September 2025',
+    issuer: 'IIT Kanpur & Canonical / Ubuntu',
+    highlight: 'Linux & Open Source'
   },
   {
-    id: '12',
-    title: 'Internet of Things Internship',
-    description: 'Worked with sensors and actuators, Arduino Cloud, Blynk, TinkerCAD, OTA updates, and Wi-Fi-based IoT communication.',
+    id: 'iot-internship',
+    title: 'Internet of Things Industrial Training',
+    description: 'Practical IoT engineering with Arduino Cloud, Blynk, TinkerCAD, OTA firmware updates, and Wi-Fi telemetric communication protocols.',
     type: 'Certification',
-    date: '2025-05-05',
+    date: 'May 2025',
     issuer: 'LaunchED Global',
-    imageUrl: '/images/iotrobotics.png',
+    highlight: 'IoT & Telemetry'
   },
   {
-    id: '13',
-    title: 'SensoTech Workshop',
-    description: 'Two-day workshop on IoT sensors and actuators. Implemented mini-projects including RFID-based attendance system and rain detection alert system.',
+    id: 'mechatronics-nist',
+    title: 'IoT & Mechatronics Internship',
+    description: 'Hands-on hardware development program with embedded Arduino systems, industrial sensors, electromechanical actuators, and cloud-integrated control circuits.',
     type: 'Certification',
-    date: '2025-09-07',
-    issuer: 'Renewable Energy Club, NIST University',
-    imageUrl: '/images/sensotech.png',
+    date: 'July 2025',
+    issuer: 'NIST University',
+    highlight: 'Embedded Automation'
   },
   {
-    id: '14',
-    title: 'International Tech Event — Vertex AI & Gemini',
-    description: 'Gained insights into Vertex AI and Gemini applications, including real-world visualization projects showcased at Sphere, Las Vegas.',
+    id: 'devops-webinar',
+    title: 'DevOps & Cloud Pipelines Certification',
+    description: 'Intensive engineering seminar on modern CI/CD pipelines, containerization principles, and developer operations.',
     type: 'Certification',
-    date: '2025-11-01',
+    date: 'September 2025',
+    issuer: 'Google Developer Groups & Malla Reddy Engg College',
+    highlight: 'CI/CD & DevOps'
+  },
+  {
+    id: 'vertex-gemini-intl',
+    title: 'International Tech Summit: Vertex AI & Gemini',
+    description: 'Explored frontier generative AI applications, multimodal Gemini pipelines, and real-time visualization frameworks shown at Sphere, Las Vegas.',
+    type: 'Certification',
+    date: 'November 2025',
     issuer: 'Google & Google Developer Groups',
-  },
-  {
-    id: '15',
-    title: 'AI Cloudwave',
-    description: 'Exposure to AI and cloud technologies including AWS, Generative AI tools, Google Gemini, Claude, Sonnet, and Haiku.',
-    type: 'Certification',
-    date: '2024-11-01',
-    issuer: 'Cloud Computing Club, NIST University',
-    imageUrl: '/images/sensotech.png',
-  },
+    highlight: 'Multimodal AI'
+  }
 ]

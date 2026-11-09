@@ -14,53 +14,56 @@ module.exports = {
         body: ['var(--font-inter)', 'sans-serif'],
       },
       colors: {
-        // Cyber-Circuit Pro Palette
-        background: '#0e1513',
-        surface: '#1a211f',
-        'surface-light': '#242b2a',
-        'surface-bright': '#333b39',
-        'surface-dim': '#0e1513',
-        'surface-lowest': '#09100e',
-        'surface-container': '#1a211f',
-        'surface-container-high': '#242b2a',
-        'surface-container-highest': '#2f3634',
+        // Executive Dark Theme
+        background: '#090d14',
+        'background-alt': '#0d131f',
+        surface: '#111827',
+        'surface-light': '#182234',
+        'surface-bright': '#222f46',
+        'surface-dim': '#090d14',
+        'surface-lowest': '#05080d',
+        'surface-container': '#0f172a',
+        'surface-container-high': '#1e293b',
+        'surface-container-highest': '#334155',
 
-        // Primary — Electric Teal
-        primary: '#2dd4bf',
-        'primary-glow': '#57f1db',
-        'primary-dim': '#005047',
-        'on-primary': '#003731',
+        // Primary — Electric Cyan / Teal
+        primary: '#06b6d4',
+        'primary-glow': '#38bdf8',
+        'primary-dim': '#083344',
+        'on-primary': '#041d27',
 
-        // Secondary — Neon Amber
-        secondary: '#ffb95f',
-        'secondary-dim': '#5b3800',
-        'on-secondary': '#472a00',
+        // Secondary — Warm Amber / Copper
+        secondary: '#f59e0b',
+        'secondary-dim': '#451a03',
+        'on-secondary': '#2e1202',
 
-        // Tertiary — Matrix Green
-        accent: '#66f3b6',
-        'accent-dim': '#005236',
+        // Tertiary — Neon Emerald
+        accent: '#10b981',
+        'accent-dim': '#022c22',
 
         // Text / On-Surface
-        'on-surface': '#dde4e1',
-        'on-surface-variant': '#bacac5',
-        'outline': '#859490',
-        'outline-variant': '#3c4a46',
+        'on-surface': '#f1f5f9',
+        'on-surface-variant': '#94a3b8',
+        'outline': '#64748b',
+        'outline-variant': '#334155',
 
         // Glassmorphism
-        'glass-white': 'rgba(255, 255, 255, 0.04)',
-        'glass-border': 'rgba(186, 202, 197, 0.08)',
+        'glass-white': 'rgba(255, 255, 255, 0.03)',
+        'glass-border': 'rgba(255, 255, 255, 0.08)',
+        'glass-border-hover': 'rgba(6, 182, 212, 0.3)',
 
-        // Semantic (PCB theme)
-        'trace': '#2dd4bf',
-        'copper': '#ffb95f',
+        // Semantic PCB / Tech
+        'trace': '#06b6d4',
+        'copper': '#f59e0b',
         'solder': '#fbbf24',
-        'via': '#66f3b6',
-        'substrate': '#1a211f',
+        'via': '#10b981',
+        'substrate': '#0f172a',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'radial-gradient(ellipse at center, rgba(45,212,191,0.10) 0%, transparent 70%)',
-        'section-glow': 'radial-gradient(ellipse at top, rgba(45,212,191,0.05) 0%, transparent 50%)',
+        'hero-glow': 'radial-gradient(ellipse at 50% 20%, rgba(6,182,212,0.15) 0%, transparent 60%)',
+        'section-glow': 'radial-gradient(ellipse at top, rgba(6,182,212,0.08) 0%, transparent 50%)',
+        'accent-glow': 'radial-gradient(ellipse at center, rgba(245,158,11,0.08) 0%, transparent 60%)',
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -76,7 +79,7 @@ module.exports = {
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '50%': { transform: 'translateY(-12px)' },
         },
         glow: {
           'from': { boxShadow: '0 0 10px -10px var(--tw-shadow-color)' },
@@ -99,21 +102,23 @@ module.exports = {
           '50%': { opacity: '0' },
         },
         copperPulse: {
-          '0%': { boxShadow: '0 0 5px rgba(255,185,95,0.3)' },
-          '100%': { boxShadow: '0 0 20px rgba(255,185,95,0.6)' },
+          '0%': { boxShadow: '0 0 5px rgba(245,158,11,0.2)' },
+          '100%': { boxShadow: '0 0 20px rgba(245,158,11,0.5)' },
         },
         tealPulse: {
-          '0%': { boxShadow: '0 0 5px rgba(45,212,191,0.3)' },
-          '100%': { boxShadow: '0 0 20px rgba(45,212,191,0.6)' },
+          '0%': { boxShadow: '0 0 5px rgba(6,182,212,0.2)' },
+          '100%': { boxShadow: '0 0 20px rgba(6,182,212,0.5)' },
         },
       },
       boxShadow: {
-        'emerald': '0 0 15px rgba(45,212,191,0.15)',
-        'copper': '0 0 15px rgba(255,185,95,0.15)',
-        'emerald-lg': '0 0 30px rgba(45,212,191,0.2)',
-        'copper-lg': '0 0 30px rgba(255,185,95,0.2)',
-        'teal-glow': '0 0 20px rgba(45,212,191,0.25)',
-        'amber-glow': '0 0 20px rgba(255,185,95,0.25)',
+        'emerald': '0 0 15px rgba(16,185,129,0.15)',
+        'copper': '0 0 15px rgba(245,158,11,0.15)',
+        'emerald-lg': '0 0 30px rgba(16,185,129,0.25)',
+        'copper-lg': '0 0 30px rgba(245,158,11,0.25)',
+        'teal-glow': '0 0 20px rgba(6,182,212,0.25)',
+        'amber-glow': '0 0 20px rgba(245,158,11,0.25)',
+        'card-glow': '0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 0 1px 1px rgba(255, 255, 255, 0.05)',
+        'card-hover': '0 12px 30px -4px rgba(6, 182, 212, 0.15), 0 0 1px 1px rgba(6, 182, 212, 0.3)',
       },
     },
   },

@@ -1,7 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, Trophy, FileText, BookOpen } from 'lucide-react'
+import {
+  Award,
+  Trophy,
+  FileCheck,
+  Calendar,
+  Building2,
+  Sparkles,
+  Shield,
+  Layers,
+} from 'lucide-react'
 import { Achievement } from '@/data/achievements'
 
 interface AchievementCardProps {
@@ -10,54 +19,77 @@ interface AchievementCardProps {
 }
 
 const iconMap = {
+  Grant: Shield,
   Award: Award,
-  Certification: FileText,
   Competition: Trophy,
-  Publication: BookOpen,
+  Certification: FileCheck,
 }
 
-export default function AchievementCard({ achievement, index }: AchievementCardProps) {
+export default function AchievementCard({
+  achievement,
+  index,
+}: AchievementCardProps) {
   const Icon = iconMap[achievement.type] || Award
-  const isAwardOrCompetition = achievement.type === 'Award' || achievement.type === 'Competition'
+  const isGrantOrAward =
+    achievement.type === 'Grant' || achievement.type === 'Award'
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: index * 0.08 }}
-      whileHover={{ y: -4 }}
-      className="module-card p-6 group"
+      layout
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.35, delay: index * 0.04 }}
+      className="modern-card p-5 sm:p-6 flex flex-col justify-between group h-full"
     >
-      <div className="flex items-start gap-4">
-        <div className="flex-shrink-0">
-          <div className={`w-10 h-10 rounded-lg flex items-center justify-center border ${isAwardOrCompetition
-              ? 'bg-secondary/5 border-secondary/20 text-secondary'
-              : 'bg-primary/5 border-primary/20 text-primary'
-            }`}>
-            <Icon className="w-5 h-5" />
+      <div>
+        {/* Top Header */}
+        <div className="flex items-center justify-between gap-2 mb-3">
+          <div
+            className={`w-9 h-9 rounded-xl flex items-center justify-center border ${
+              isGrantOrAward
+                ? 'bg-amber-500/10 border-amber-500/30 text-amber-400'
+                : 'bg-primary/10 border-primary/30 text-primary'
+            }`}
+          >
+            <Icon size={18} />
           </div>
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="flex items-start justify-between gap-2 mb-2">
-            <h3 className="text-base font-heading font-bold text-white group-hover:text-primary transition-colors leading-tight">
-              {achievement.title}
-            </h3>
-            <span className={`flex-shrink-0 ${isAwardOrCompetition ? 'copper-badge' : 'chip-badge'}`}>
+
+          <div className="flex items-center gap-2">
+            <span
+              className={
+                isGrantOrAward ? 'copper-badge' : 'cyan-badge'
+              }
+            >
               {achievement.type}
             </span>
           </div>
-          <p className="text-gray-500 text-sm mb-3 leading-relaxed">{achievement.description}</p>
-          <div className="flex items-center gap-4 text-xs text-gray-600 font-mono">
-            {achievement.issuer && (
-              <span>
-                <span className={isAwardOrCompetition ? 'text-secondary/70' : 'text-primary/70'}>
-                  {achievement.issuer}
-                </span>
-              </span>
-            )}
-            <span>{new Date(achievement.date).toLocaleDateString()}</span>
-          </div>
         </div>
+
+        {/* Title */}
+        <h3 className="text-base sm:text-lg font-heading font-bold text-white group-hover:text-primary transition-colors mb-2">
+          {achievement.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4">
+          {achievement.description}
+        </p>
+      </div>
+
+      {/* Footer Meta */}
+      <div className="pt-3 border-t border-glass-border flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-slate-500">
+        {achievement.issuer && (
+          <span className="flex items-center gap-1.5 text-slate-300">
+            <Building2 size={13} className="text-primary" />
+            <span className="truncate max-w-[220px]">{achievement.issuer}</span>
+          </span>
+        )}
+
+        <span className="flex items-center gap-1 ml-auto text-slate-400">
+          <Calendar size={12} />
+          <span>{achievement.date}</span>
+        </span>
       </div>
     </motion.div>
   )

@@ -25,17 +25,21 @@ export async function POST(request: NextRequest) {
 
     // Prepare email content
     const htmlContent = `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Message:</strong></p>
-      <p>${message.replace(/\n/g, '<br>')}</p>
+      <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <h2 style="color: #06b6d4;">New Contact Form Submission — Portfolio</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 16px 0;" />
+        <p><strong>Message:</strong></p>
+        <p style="background: #f8fafc; padding: 12px; border-radius: 8px;">${message.replace(/\n/g, '<br>')}</p>
+      </div>
     `
 
     // Send email to primary address
+    const recipient = process.env.CONTACT_EMAIL || 'jagan.swain.ece.2024@nist.edu'
     const result = await sendEmail({
-      to: 'jagan.swain.2024@nist.edu',
+      to: recipient,
       subject: `Portfolio Contact: ${subject}`,
       html: htmlContent,
     })
@@ -59,4 +63,3 @@ export async function POST(request: NextRequest) {
     )
   }
 }
-

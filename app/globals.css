@@ -8,129 +8,108 @@
   }
 
   body {
-    color: #dde4e1;
-    background: #0e1513;
-    @apply antialiased overflow-x-hidden;
+    color: #e2e8f0;
+    background: #090d14;
+    @apply antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Heading font override — JetBrains Mono */
+  /* JetBrains Mono for Code, Headings, and Metric figures */
   h1, h2, h3, h4 {
-    font-family: var(--font-jetbrains-mono), monospace;
+    letter-spacing: -0.02em;
   }
 
   ::selection {
-    background: rgba(45, 212, 191, 0.25);
-    color: #57f1db;
+    background: rgba(6, 182, 212, 0.25);
+    color: #38bdf8;
   }
 }
 
 @layer components {
-  /* Module Card — the core component style */
+  /* Modern Glass / Card System */
+  .modern-card {
+    @apply relative bg-surface-container/70 backdrop-blur-md rounded-xl border border-glass-border;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .modern-card:hover {
+    @apply border-primary/40 bg-surface-container/90;
+    box-shadow: 0 12px 30px -4px rgba(6, 182, 212, 0.12), 0 0 0 1px rgba(6, 182, 212, 0.2);
+  }
+
+  /* Backward compatible module-card */
   .module-card {
-    @apply relative bg-surface/80 backdrop-blur-sm rounded-lg border border-glass-border;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .module-card::before {
-    content: '';
-    @apply absolute top-2 left-2 w-1.5 h-1.5 rounded-full bg-primary/40;
-  }
-  .module-card::after {
-    content: '';
-    @apply absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-primary/40;
+    @apply relative bg-surface-container/70 backdrop-blur-md rounded-xl border border-glass-border;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .module-card:hover {
-    @apply border-primary/30;
-    box-shadow: 0 0 20px rgba(45, 212, 191, 0.08), inset 0 1px 0 rgba(45, 212, 191, 0.05);
+    @apply border-primary/40;
+    box-shadow: 0 10px 25px -4px rgba(6, 182, 212, 0.12), 0 0 0 1px rgba(6, 182, 212, 0.2);
   }
 
-  /* Chip Badge */
+  /* Chip Badges */
   .chip-badge {
-    @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-mono font-medium tracking-wider uppercase;
-    @apply bg-surface-light border border-glass-border text-on-surface-variant;
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono font-medium tracking-wide;
+    @apply bg-surface-light border border-glass-border text-slate-300;
   }
 
-  /* Copper Badge */
+  .cyan-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono font-medium tracking-wide;
+    @apply bg-primary/10 border border-primary/30 text-primary;
+  }
+
   .copper-badge {
-    @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-mono font-medium tracking-wider uppercase;
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono font-medium tracking-wide;
     @apply bg-secondary/10 border border-secondary/30 text-secondary;
   }
 
-  /* Hexagon (kept for backward compat) */
-  .hexagon {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  }
-
-  /* Trace Border — animated gradient border */
-  .trace-border {
-    @apply relative;
-    background: linear-gradient(#1a211f, #1a211f) padding-box,
-                linear-gradient(135deg, #2dd4bf, #57f1db, #ffb95f, #2dd4bf) border-box;
-    border: 1px solid transparent;
-    background-size: 100% 100%, 200% 200%;
-    animation: traceFlow 3s linear infinite;
+  .emerald-badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-md text-xs font-mono font-medium tracking-wide;
+    @apply bg-accent/10 border border-accent/30 text-accent;
   }
 
   /* Status LED */
   .status-led {
-    @apply relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono tracking-wider;
-    @apply bg-primary/5 border border-primary/20 text-primary;
+    @apply relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider;
+    @apply bg-accent/10 border border-accent/30 text-accent;
   }
   .status-led::before {
     content: '';
-    @apply w-2 h-2 rounded-full bg-primary;
-    box-shadow: 0 0 6px #2dd4bf, 0 0 12px rgba(45, 212, 191, 0.4);
+    @apply w-2 h-2 rounded-full bg-accent;
+    box-shadow: 0 0 8px #10b981;
     animation: pulse 2s ease-in-out infinite;
-  }
-
-  /* Via Point */
-  .via-point {
-    @apply w-4 h-4 rounded-full bg-copper border-2 border-primary;
-    box-shadow: 0 0 8px rgba(45, 212, 191, 0.3);
-  }
-
-  /* Neon glow */
-  .neon-glow {
-    box-shadow: 0 0 10px rgba(45, 212, 191, 0.3), 0 0 20px rgba(45, 212, 191, 0.15);
-  }
-
-  /* Terminal Header */
-  .terminal-header {
-    @apply flex items-center gap-2 px-4 py-2.5 bg-surface-lowest rounded-t-lg border-b border-glass-border;
-  }
-  .terminal-dot {
-    @apply w-2.5 h-2.5 rounded-full;
   }
 
   /* Ambient glow card */
   .glow-card {
-    @apply relative bg-surface/60 backdrop-blur-md rounded-lg border border-glass-border;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    @apply relative bg-surface-container/80 backdrop-blur-md rounded-xl border border-glass-border;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .glow-card:hover {
     @apply border-primary/40;
-    box-shadow: 0 0 30px rgba(45, 212, 191, 0.12), 0 0 60px rgba(45, 212, 191, 0.05);
+    box-shadow: 0 12px 30px -4px rgba(6, 182, 212, 0.15), 0 0 0 1px rgba(6, 182, 212, 0.25);
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #2dd4bf 0%, #57f1db 50%, #ffb95f 100%);
+    background-image: linear-gradient(135deg, #38bdf8 0%, #06b6d4 50%, #f59e0b 100%);
+  }
+
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #38bdf8, #06b6d4);
   }
 
   .text-gradient-teal {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #2dd4bf, #57f1db);
+    background-image: linear-gradient(135deg, #06b6d4, #10b981);
   }
 
   .text-gradient-copper {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #ffb95f, #fbbf24);
-  }
-
-  .text-gradient-matrix {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #66f3b6, #2dd4bf);
+    background-image: linear-gradient(135deg, #fbbf24, #f59e0b);
   }
 
   .glass {
@@ -138,43 +117,37 @@
   }
 
   .glass-card {
-    @apply bg-glass-white backdrop-blur-lg border border-glass-border rounded-xl shadow-lg hover:border-primary/20 transition-all duration-300;
+    @apply bg-surface-container/70 backdrop-blur-lg border border-glass-border rounded-xl shadow-lg hover:border-primary/30 transition-all duration-300;
   }
 
-  /* Subtle grid pattern — 32px circuit board */
+  /* Subtle grid pattern */
   .grid-pattern {
     background-image:
-      linear-gradient(rgba(45, 212, 191, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(45, 212, 191, 0.03) 1px, transparent 1px);
-    background-size: 32px 32px;
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 36px 36px;
   }
 
   /* PCB trace line */
   .trace-line {
-    background: linear-gradient(180deg, #2dd4bf 0%, #57f1db 50%, #2dd4bf 100%);
+    background: linear-gradient(180deg, #06b6d4 0%, #38bdf8 50%, #06b6d4 100%);
   }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0e1513;
+  background: #090d14;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(45, 212, 191, 0.2);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(45, 212, 191, 0.4);
-}
-
-/* Animation keyframe for trace flow (CSS fallback) */
-@keyframes traceFlow {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  background: rgba(6, 182, 212, 0.4);
 }

@@ -1,22 +1,20 @@
 import Navbar from '@/components/Navigation/Navbar'
-import CircuitBoard from '@/components/Circuit/CircuitBoard'
-import Timeline from '@/components/Education/Timeline'
-import { educationData } from '@/data/education'
+import Footer from '@/components/Footer/Footer'
+import EducationSection from '@/components/Education/EducationSection'
+
+export const metadata = {
+  title: 'Education & Dual Degree | Jagan Kumar Swain',
+  description: 'Academic background of Jagan Kumar Swain: B.Tech in Electronics and Communication Engineering at NIST University (CGPA 9.1) and BS in Data Science & Applications at IIT Madras (CGPA 8.1).',
+}
 
 export default function EducationPage() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background text-on-surface">
       <Navbar />
-      <div className="relative pt-24 pb-16">
-        <CircuitBoard />
-        <div className="container mx-auto px-4 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-signal-neon to-signal-cyan bg-clip-text text-transparent">
-            Education
-          </h1>
-          <Timeline items={educationData} />
-        </div>
+      <div className="pt-16">
+        <EducationSection />
       </div>
+      <Footer />
     </main>
   )
 }
-
