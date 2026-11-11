@@ -39,12 +39,13 @@ export const experiences: ExperienceItem[] = [
     location: 'Bengaluru, Karnataka, India',
     period: '05 Jun 2026 – 31 Jul 2026',
     type: 'Industry',
-    description: 'Hardware-software co-engineering for advanced autonomous micro drone systems.',
+    description: 'Designed and brought up a custom 8-layer, 34.29 mm square all-in-one flight controller and 4-in-1 ESC board for an autonomous micro drone.',
     bullets: [
-      'Contributed to end-to-end development of micro drone prototypes, bridging cross-functional mechanical and electronic subsystems.',
-      'Applied structured product design methodologies to integrate PCB layouts, flight electronics, and sensor payloads for stable aerodynamics.',
-      'Recognized officially in the internship certificate for outstanding learning agility, dedication, and proactive engineering exploration.'
+      'Designed an 8-layer, 34.29 mm square, double-sided all-in-one flight controller and 4-in-1 ESC board in EasyEDA for the micro drone, owning schematic capture, component placement, routing, BOM, DRC/design review, and hardware bring-up (243 components, 64 BOM line items, 0201/0402 passives).',
+      'Integrated an STM32F411 flight controller with an ICM-42688-P IMU, BMP280 barometer, HMC5883L magnetometer, W25Q128 blackbox flash, and AT7456E analog OSD.',
+      'Built the 4-motor power stage: four EFM8BB21 ESC microcontrollers, four FD6288Q three-phase gate drivers, 24 MOSFETs, and INA199 current sensing across a 1 mΩ shunt, with TVS input protection and buck/LDO power rails.',
+      'Worked across mechanical and electronics integration within the product design process in Geometry Assurance Engineering.'
     ],
-    skills: ['Drone Systems', 'Embedded Electronics', 'Hardware Prototyping', 'CAD', 'Sensors']
+    skills: ['8-Layer PCB Design', 'EasyEDA', 'STM32F411', '4-in-1 ESC', 'BLDC Motor Drive', 'ICM-42688-P', 'Hardware Bring-up', 'Avionics']
   }
 ]

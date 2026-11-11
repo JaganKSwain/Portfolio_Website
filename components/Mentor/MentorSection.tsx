@@ -26,7 +26,7 @@ export default function MentorSection() {
             Academic <span className="text-gradient">Mentorship</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Distinguished faculty mentors who have guided my research trajectory in embedded electronics and deep learning.
+            Distinguished faculty mentors who have guided my research trajectory in embedded electronics, VLSI, and deep learning.
           </p>
         </motion.div>
 
@@ -54,7 +54,7 @@ export default function MentorSection() {
                   <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-background/90 to-transparent" />
                 </div>
                 <div className="absolute -bottom-2 -right-2 px-2.5 py-1 rounded-md bg-surface-container border border-primary/40 text-[10px] font-mono text-primary shadow-lg">
-                  Academic Mentor
+                  Department Head & Mentor
                 </div>
               </div>
 
@@ -62,7 +62,7 @@ export default function MentorSection() {
               <div className="space-y-4 text-center md:text-left flex-1 min-w-0">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-primary/10 border border-primary/20 text-xs font-mono text-primary">
                   <GraduationCap size={14} />
-                  <span>Professor & Research Guide</span>
+                  <span>Head of Department & Research Guide</span>
                 </div>
 
                 <div className="space-y-1">
@@ -70,7 +70,7 @@ export default function MentorSection() {
                     Dr. Sandipan Mallik
                   </h3>
                   <p className="text-sm font-semibold text-slate-300">
-                    Professor, Department of Electronics & Communication Engineering
+                    Head of Department, Electronics and Communication Engineering
                   </p>
                   <p className="text-xs font-mono text-secondary">
                     NIST University, Berhampur
@@ -81,7 +81,7 @@ export default function MentorSection() {
                   <Quote className="w-5 h-5 text-primary/40 mb-1" />
                   &ldquo;Under Dr. Mallik&apos;s mentorship, I developed the methodology to bridge
                   fundamental circuit analysis and VLSI principles with hardware-aware machine learning models,
-                  translating abstract concepts into deployable, grant-winning defense hardware.&rdquo;
+                  translating abstract concepts into deployable, grant-winning defense hardware and research manuscripts.&rdquo;
                 </div>
 
                 {/* Additional Acknowledgment of Dr. Anabik Pal */}

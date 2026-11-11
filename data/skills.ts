@@ -31,6 +31,22 @@ export const skillGroups: SkillGroup[] = [
     ]
   },
   {
+    category: 'Embedded Systems, PCB & Drones',
+    iconName: 'cpu',
+    description: '8-layer PCB design, autonomous drone avionics, sensor integration, and real-time edge processing.',
+    skills: [
+      { name: 'PCB Design (8-Layer, EasyEDA)', highlight: true, context: '34.29mm² Micro Drone AIO FC + 4-in-1 ESC' },
+      { name: 'STM32 & Avionics Integration', highlight: true, context: 'STM32F411, ICM-42688-P IMU, BMP280, Mag' },
+      { name: 'BLDC Motor Drive & 4-in-1 ESC', highlight: true, context: '4x EFM8BB21, FD6288Q drivers, 24 MOSFETs' },
+      { name: 'Schematic Capture & Hardware Bring-up', highlight: true, context: '243 components, 0201/0402, INA199 1mΩ' },
+      { name: 'Micro Drone Systems', highlight: true, context: 'PE Geometry Bengaluru Internship' },
+      { name: 'Arduino Nicla Vision & Edge AI', highlight: true, context: 'GuardX Sentinel Defense System' },
+      { name: 'Raspberry Pi & Linux SBC', highlight: false, context: 'Edge Compute, Camera Payloads' },
+      { name: 'Embedded C / C++', highlight: true, context: 'Avionics Firmware & Microcontrollers' },
+      { name: 'Digital Signal Processing (DSP)', highlight: false, context: 'ECG Filtering, Sensor Telemetry' }
+    ]
+  },
+  {
     category: 'AI & Deep Learning',
     iconName: 'brain',
     description: 'Vision Transformers, multi-label clinical diagnostics, quantization-aware training, and model ensembling.',
@@ -42,19 +58,6 @@ export const skillGroups: SkillGroup[] = [
       { name: 'Medical Image Analysis (RFMiD)', highlight: true, context: '45-Class Pathological Segmentation' },
       { name: 'Ensemble Learning & Wilcoxon Tests', highlight: true, context: '7-Model Ensemble (AUC 0.933)' },
       { name: 'CNN-LSTM Hybrid Networks', highlight: true, context: 'DeepBeat ECG Classification (96%)' }
-    ]
-  },
-  {
-    category: 'Embedded Systems & Drones',
-    iconName: 'cpu',
-    description: 'Hardware prototyping, autonomous systems, sensor integration, and real-time edge processing.',
-    skills: [
-      { name: 'Micro Drone Systems', highlight: true, context: 'PE Geometry Bengaluru Internship' },
-      { name: 'Arduino Nicla Vision', highlight: true, context: 'GuardX Sentinel Defense System' },
-      { name: 'Raspberry Pi', highlight: true, context: 'Edge Compute, Linux SBC' },
-      { name: 'Embedded C / C++', highlight: true, context: 'Microcontrollers & Avionics Firmware' },
-      { name: 'IoT Systems & Cloud Telemetry', highlight: true, context: 'SIH 2025 SegroBin' },
-      { name: 'Digital Signal Processing (DSP)', highlight: false, context: 'ECG Filtering, Signal Chains' }
     ]
   },
   {

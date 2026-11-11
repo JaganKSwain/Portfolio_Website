@@ -17,31 +17,31 @@ import Image from 'next/image'
 export default function AboutSection() {
   const pillars = [
     {
+      icon: <Cpu className="w-5 h-5 text-accent" />,
+      title: 'VLSI & 10T SRAM CiM',
+      desc: 'Designing 32×32 differential 10T SRAM compute-in-memory macros in SkyWater 130nm, closed timing at 200 MHz, verified via Cocotb and SPICE.',
+      tags: ['SkyWater 130nm', '10T SRAM CiM', 'Yosys', 'Vivado', 'Cocotb'],
+      borderColor: 'group-hover:border-accent/40',
+    },
+    {
       icon: <Brain className="w-5 h-5 text-primary" />,
       title: 'Deep Learning & Medical CV',
-      desc: 'Developing CNN-LSTM networks and segmentation pipelines for ophthalmic fundus diagnostics and time-series physiological data.',
-      tags: ['PyTorch', 'Computer Vision', 'Medical Imaging', 'Time-Series'],
+      desc: 'Benchmarked 15 DL architectures on RFMiD (3,200 fundus scans); 7-model ensemble achieving RIADD 0.756 and mean AUC 0.933 under stratified 5-fold CV.',
+      tags: ['PyTorch', 'MaxViT', 'Vision Transformers', 'RFMiD', 'Medical Imaging'],
       borderColor: 'group-hover:border-primary/40',
     },
     {
       icon: <Plane className="w-5 h-5 text-secondary" />,
-      title: 'Micro Drones & Edge AI',
-      desc: 'Prototyping drone avionics, telemetry, and on-device machine vision using Arduino Nicla Vision and constrained microcontrollers.',
-      tags: ['Drone Avionics', 'Nicla Vision', 'IoT Telemetry', 'Embedded C'],
+      title: '8-Layer PCB Avionics & Drones',
+      desc: 'Engineered a 34.29 mm² 8-layer micro drone flight controller and 4-in-1 ESC in EasyEDA with STM32F411, ICM-42688-P IMU, and 24-MOSFET power stages.',
+      tags: ['8-Layer PCB', 'EasyEDA', 'STM32F411', '4-in-1 ESC', 'Avionics'],
       borderColor: 'group-hover:border-secondary/40',
     },
     {
-      icon: <Cpu className="w-5 h-5 text-accent" />,
-      title: 'VLSI & Digital Logic',
-      desc: 'Designing RTL architectures in Verilog HDL, verifying 16-operation ALUs, and simulating timing waveforms in Vivado 2025.2.',
-      tags: ['Verilog HDL', 'Vivado 2025.2', 'FPGA', 'RTL Simulation'],
-      borderColor: 'group-hover:border-accent/40',
-    },
-    {
       icon: <Code2 className="w-5 h-5 text-cyan-400" />,
-      title: 'Full-Stack & Microservices',
-      desc: 'Constructing robust web platforms with Next.js, Flask backends, Node.js, and cryptographically secure JWT authentication.',
-      tags: ['Next.js', 'Node.js', 'Flask', 'REST APIs', 'MongoDB'],
+      title: 'Full-Stack & Edge Compute',
+      desc: 'Deploying edge computer vision pipelines on Arduino Nicla Vision (GuardX Sentinel ₹50K grant) and building secure JWT web backends.',
+      tags: ['Edge AI', 'Nicla Vision', 'Next.js', 'Node.js', 'Flask'],
       borderColor: 'group-hover:border-cyan-400/40',
     },
   ]
@@ -67,8 +67,8 @@ export default function AboutSection() {
             Engineering from <span className="text-gradient">Silicon to Cloud</span>
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            I specialize at the intersection of electrical hardware and modern artificial intelligence —
-            delivering deployable systems that run efficiently in resource-constrained environments.
+            Spanning custom mixed-signal VLSI, high-density 8-layer PCB avionics, and medical deep learning architectures —
+            delivering mathematically rigorous and experimentally verified physical systems.
           </p>
         </motion.div>
 
@@ -90,15 +90,16 @@ export default function AboutSection() {
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
                 Most modern systems treat software and hardware as disconnected silos.
-                My background in <span className="text-white font-semibold">Electronics & Communication</span> coupled with intensive study in{' '}
-                <span className="text-white font-semibold">Data Science at IIT Madras</span> allows me to optimize
-                algorithms specifically for the physical silicon executing them.
+                My background in <span className="text-white font-semibold">Electronics & Communication (9.1 CGPA)</span> coupled with intensive study in{' '}
+                <span className="text-white font-semibold">Data Science at IIT Madras (8.1 CGPA)</span> enables me to co-design
+                algorithms directly alongside the physical silicon executing them.
               </p>
 
               <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-                Whether it is reducing inference latency for human activity detection on a flying micro-drone,
-                synthesizing a 16-operation ALU in Verilog HDL, or training a hybrid CNN-LSTM to detect cardiac arrhythmias from 87,000+ ECG samples,
-                I focus on verifiable accuracy and measurable performance.
+                From routing an <span className="text-secondary font-medium">8-layer double-sided 34.29 mm² flight controller</span> with 243 components at PE Geometry,
+                to designing an open-source <span className="text-accent font-medium">10T SRAM Compute-In-Memory macro</span> in SkyWater 130nm,
+                and benchmarking 15 deep learning networks for retinal diagnosis at <span className="text-primary font-medium">IISER Berhampur</span>,
+                my work focuses on verifiable accuracy and measurable hardware efficiency.
               </p>
 
               {/* Bullet highlights */}
@@ -106,17 +107,23 @@ export default function AboutSection() {
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-primary mt-1 flex-shrink-0" />
                   <span>
-                    <strong>Dual Academic Focus:</strong> Core Electronics & Communication (9.1 CGPA) + IIT Madras Data Science (8.1 CGPA).
+                    <strong>First-Author Research:</strong> 2 manuscripts in preparation (RFMiD retinal benchmark & SkyWater 130nm CiM macro).
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-secondary mt-1 flex-shrink-0" />
                   <span>
-                    <strong>Defence Grant Recipient:</strong> ₹50,000 research grant from Army AD College & NIST for GuardX Sentinel.
+                    <strong>Micro Drone Avionics:</strong> Designed 8-layer 34.29 mm² all-in-one flight controller and 4-in-1 ESC board in EasyEDA.
                   </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-4 h-4 text-accent mt-1 flex-shrink-0" />
+                  <span>
+                    <strong>Defence Grant Recipient:</strong> ₹50,000 research grant from Army AD College & NIST for GuardX Sentinel.
+                  </span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 mt-1 flex-shrink-0" />
                   <span>
                     <strong>National Recognition:</strong> Smart India Hackathon Grand Finalist (Top 5 for Govt. of Odisha problem).
                   </span>
